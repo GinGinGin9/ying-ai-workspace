@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ying — global digital marketer working across strategy, creative, systems and AI-enabled workflows." />
-  <title>Ying / A World of Work</title>
+  <meta name="description" content="Ying 的海外数字营销作品集：市场研究、策略、创意、系统搭建与 AI 工作流。" />
+  <title>Ying / 海外营销工作台</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,79 +13,84 @@
 <body>
   <canvas id="three-canvas" aria-hidden="true"></canvas>
   <div class="grain" aria-hidden="true"></div>
+
   <div class="world-ui" id="worldUi" aria-label="Interactive workspace map">
-    <button class="world-label" data-world="research"><span>01</span><strong>RESEARCH</strong><small>find the signal</small></button>
-    <button class="world-label" data-world="strategy"><span>02</span><strong>STRATEGY</strong><small>choose the path</small></button>
-    <button class="world-label" data-world="create"><span>03</span><strong>CREATE</strong><small>make it visible</small></button>
-    <button class="world-label" data-world="build"><span>04</span><strong>BUILD</strong><small>make it repeatable</small></button>
-    <button class="world-label" data-world="optimize"><span>05</span><strong>OPTIMIZE</strong><small>learn and refine</small></button>
+    <button class="world-label" data-world="research"><span>01</span><strong>研究</strong><em>RESEARCH</em><small>先把问题看清</small></button>
+    <button class="world-label" data-world="strategy"><span>02</span><strong>策略</strong><em>STRATEGY</em><small>决定什么值得做</small></button>
+    <button class="world-label" data-world="create"><span>03</span><strong>创意</strong><em>CREATE</em><small>把策略变成可见的东西</small></button>
+    <button class="world-label" data-world="build"><span>04</span><strong>系统</strong><em>BUILD</em><small>把经验变成可复用流程</small></button>
+    <button class="world-label" data-world="optimize"><span>05</span><strong>优化</strong><em>OPTIMIZE</em><small>让结果回到下一轮决策</small></button>
   </div>
 
   <header class="topbar">
-    <a class="brand" href="#entry">YING / WORKSPACE</a>
+    <a class="brand" href="#entry"><span>YING / 营销工作台</span><small>MARKETING WORKSPACE</small></a>
     <nav>
-      <a href="#workspace">WORLD</a>
-      <a href="#create">WORK</a>
-      <a href="#about">ABOUT</a>
+      <a href="#workspace"><span>工作方式</span><small>WORLD</small></a>
+      <a href="#create"><span>作品</span><small>WORK</small></a>
+      <a href="#about"><span>关于我</span><small>ABOUT</small></a>
     </nav>
   </header>
 
   <main>
     <section id="entry" class="entry section-full">
       <div class="entry-copy">
-        <p class="eyebrow">GLOBAL DIGITAL MARKETING · CREATIVE SYSTEMS</p>
-        <h1>A SMALL WORLD<br><em>OF WORK.</em></h1>
-        <p class="lede">Strategy, content, campaigns and systems — built hands-on, with AI woven into the process rather than pasted on top.</p>
-        <button id="enterBtn" class="primary-btn">ENTER THE WORLD <span>↘</span></button>
+        <p class="eyebrow">GLOBAL DIGITAL MARKETING · STRATEGY · CREATIVE · AI WORKFLOWS</p>
+        <h1>我做海外营销，<br><em>也搭营销系统。</em></h1>
+        <p class="lede zh-copy">从市场研究、策略、内容创意到投放复盘，我更在意这些环节怎么真正连起来。AI 对我来说不是展示标签，而是已经进入工作流的一部分。</p>
+        <p class="lede-en">Global marketing, strategy, creative and AI-enabled workflows — connected into one working system.</p>
+        <button id="enterBtn" class="primary-btn"><span>进入工作台</span><small>ENTER THE WORLD ↘</small></button>
       </div>
-      <div class="world-instruction">MOVE YOUR CURSOR · FIND A PORTAL</div>
-      <div class="scroll-hint">SCROLL TO TRAVEL</div>
+      <div class="world-instruction"><span>移动鼠标，看看这个世界怎么回应你</span><small>MOVE · HOVER · EXPLORE</small></div>
+      <div class="scroll-hint"><span>向下进入</span><small>SCROLL TO TRAVEL</small></div>
     </section>
 
     <section id="workspace" class="workspace section-full">
-      <div class="section-kicker">01 / THE WORLD</div>
+      <div class="section-kicker">01 / 工作方式 <small>HOW I WORK</small></div>
       <div class="workspace-intro">
-        <p class="eyebrow">FIVE PLACES I RETURN TO.</p>
-        <h2>One way of working,<br><em>seen from five angles.</em></h2>
+        <p class="eyebrow">FIVE SPACES · ONE CONNECTED WORKFLOW</p>
+        <h2>研究、策略、创意、系统、优化。<br><em>它们本来就是一件事。</em></h2>
+        <p class="section-note">我把海外营销拆成五个反复往返的空间。不是线性流程，更像一套持续修正的工作系统。</p>
       </div>
 
       <div class="spatial-grid" id="spatialGrid">
         <article class="cap-card c-research" data-cap="research">
-          <div class="cap-index">01</div><div class="cap-copy"><h3>RESEARCH</h3><p>Find the signal.</p><small>Market · audience · competitor intelligence</small></div>
+          <div class="cap-index">01</div><div class="cap-copy"><h3>研究 <small>RESEARCH</small></h3><p>先把问题看清。</p><small>市场 · 用户 · 竞品 · 信息判断</small></div>
         </article>
         <article class="cap-card c-strategy" data-cap="strategy">
-          <div class="cap-index">02</div><div class="cap-copy"><h3>STRATEGY</h3><p>Choose the path.</p><small>Positioning · campaign · channel logic</small></div>
+          <div class="cap-index">02</div><div class="cap-copy"><h3>策略 <small>STRATEGY</small></h3><p>决定做什么，也决定先做什么。</p><small>定位 · Campaign · 渠道 · 优先级</small></div>
         </article>
         <article class="cap-card c-create active" data-cap="create">
-          <div class="cap-index">03</div><div class="cap-copy"><h3>CREATE</h3><p>Make it visible.</p><small>Content · visual · video · experience</small></div>
+          <div class="cap-index">03</div><div class="cap-copy"><h3>创意 <small>CREATE</small></h3><p>把策略变成别人看得见、记得住的东西。</p><small>内容 · 视觉 · 视频 · 体验</small></div>
         </article>
         <article class="cap-card c-build" data-cap="build">
-          <div class="cap-index">04</div><div class="cap-copy"><h3>BUILD</h3><p>Make it repeatable.</p><small>AI workflows · agents · reusable processes</small></div>
+          <div class="cap-index">04</div><div class="cap-copy"><h3>系统 <small>BUILD</small></h3><p>把一次性经验变成可复用流程。</p><small>AI 工作流 · Agents · SOP · 自动化</small></div>
         </article>
         <article class="cap-card c-optimize" data-cap="optimize">
-          <div class="cap-index">05</div><div class="cap-copy"><h3>OPTIMIZE</h3><p>Learn and refine.</p><small>Data · iteration · feedback loops</small></div>
+          <div class="cap-index">05</div><div class="cap-copy"><h3>优化 <small>OPTIMIZE</small></h3><p>让结果回到下一轮决策里。</p><small>数据 · 复盘 · 迭代 · Feedback Loop</small></div>
         </article>
       </div>
-      <a class="explore-create" href="#create">ENTER CREATE <span>↓</span></a>
+      <a class="explore-create" href="#create"><span>进入创意作品</span><small>ENTER CREATE ↓</small></a>
     </section>
 
     <section id="create" class="create-section">
       <div class="create-sticky">
-        <div class="section-kicker">02 / CREATE</div>
+        <div class="section-kicker">02 / 作品 <small>SELECTED WORK</small></div>
         <div class="create-heading">
-          <p class="eyebrow">THE WORK BECOMES REAL HERE.</p>
-          <h2>Things people can<br><em>see, watch and use.</em></h2>
-          <p>Campaigns, product storytelling, motion and social content — developed hands-on and across external creative teams.</p>
+          <p class="eyebrow">THE WORK IS THE EVIDENCE.</p>
+          <h2>策略最后要落到<br><em>看得见的结果。</em></h2>
+          <p class="zh-copy">下面保留我真正参与、推动或亲手完成的 Campaign、视频、视觉和协作项目。重点不是把作品堆满，而是让你看见我在每个项目里到底做了什么。</p>
+          <p class="lede-en">Selected work with the thinking, role and execution behind it.</p>
         </div>
       </div>
 
       <div class="campaign-stage">
         <div class="campaign-copy">
-          <div class="micro-label">HERO CASE · INTEGRATED CAMPAIGN</div>
+          <div class="micro-label">整合营销案例 <small>INTEGRATED CAMPAIGN</small></div>
           <h3>FMR-5S</h3>
-          <p>An integrated product campaign built across teaser, launch and long-tail content.</p>
-          <div class="pill-row"><span>QUIZ</span><span>TEASER</span><span>VIDEO</span><span>POSTER</span><span>BROCHURE</span></div>
-          <button class="text-btn" data-modal="fmr">VIEW CASE ↗</button>
+          <p class="zh-copy">一个产品 Campaign，如何从互动预热、Launch 一路延伸到产品教育与长尾内容，而不是把传播停在一次发布。</p>
+          <p class="lede-en compact">From teaser and launch to education and long-tail content.</p>
+          <div class="pill-row"><span>互动 QUIZ</span><span>预热 TEASER</span><span>视频 VIDEO</span><span>视觉 KV</span><span>手册 BROCHURE</span></div>
+          <button class="text-btn" data-modal="fmr">看完整案例 <small>VIEW CASE ↗</small></button>
         </div>
         <div class="campaign-cloud" id="campaignCloud">
           <button class="media-card m1" data-img="https://drive.google.com/thumbnail?id=1eBDRui0RkS5uQxMm-QM9NEQCPHDU2bbR&sz=w1400" data-title="FMR-5S · Launch Visual"><img src="https://drive.google.com/thumbnail?id=1eBDRui0RkS5uQxMm-QM9NEQCPHDU2bbR&sz=w1400" alt="FMR-5S launch visual"></button>
@@ -95,17 +100,17 @@
       </div>
 
       <div class="work-strip">
-        <div class="strip-head"><div><div class="micro-label">SELF-PRODUCED</div><h3>Made by me.</h3></div><p>Selected videos from concept through production and edit.</p></div>
+        <div class="strip-head"><div><div class="micro-label">亲手制作 <small>HANDS-ON PRODUCTION</small></div><h3>这些，我自己做。</h3></div><p>从创意、内容到制作与剪辑，保留真正 hands-on 的部分。</p></div>
         <div class="video-grid">
-          <article class="video-tile" data-drive="1VUd3TOj6qdnYuNazFzN9SsJBIKK_y28z"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1VUd3TOj6qdnYuNazFzN9SsJBIKK_y28z&sz=w1200" alt="Product operation video"><span>PLAY ↗</span></div><div class="tile-meta"><h4>Product Operation</h4><p>Concept · Production · Editing</p></div></article>
-          <article class="video-tile" data-drive="1-LxF7sNQq0Rwa22kqEn8-nsUmn-mVgys"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1-LxF7sNQq0Rwa22kqEn8-nsUmn-mVgys&sz=w1200" alt="World Environment Day video"><span>PLAY ↗</span></div><div class="tile-meta"><h4>World Environment Day</h4><p>Concept · Content · Production</p></div></article>
-          <article class="video-tile" data-drive="1qqvm3lsZGIGRYDfipAufALuGHOQ9ShKt"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1qqvm3lsZGIGRYDfipAufALuGHOQ9ShKt&sz=w1200" alt="Women and Girls in Science video"><span>PLAY ↗</span></div><div class="tile-meta"><h4>Women & Girls in Science</h4><p>Creative · Production · Editing</p></div></article>
-          <article class="video-tile" data-drive="1oGVDqsm2a6DGCMuq2C-YIwPeQy8pVgU7"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1oGVDqsm2a6DGCMuq2C-YIwPeQy8pVgU7&sz=w1200" alt="PANDA Mini seasonal video"><span>PLAY ↗</span></div><div class="tile-meta"><h4>PANDA Mini · Seasonal</h4><p>Concept · Video · Social</p></div></article>
+          <article class="video-tile" data-drive="1VUd3TOj6qdnYuNazFzN9SsJBIKK_y28z"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1VUd3TOj6qdnYuNazFzN9SsJBIKK_y28z&sz=w1200" alt="Product operation video"><span>播放 PLAY ↗</span></div><div class="tile-meta"><h4>产品操作视频 <small>Product Operation</small></h4><p>创意 · 制作 · 剪辑</p></div></article>
+          <article class="video-tile" data-drive="1-LxF7sNQq0Rwa22kqEn8-nsUmn-mVgys"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1-LxF7sNQq0Rwa22kqEn8-nsUmn-mVgys&sz=w1200" alt="World Environment Day video"><span>播放 PLAY ↗</span></div><div class="tile-meta"><h4>世界环境日 <small>World Environment Day</small></h4><p>创意 · 内容 · 制作</p></div></article>
+          <article class="video-tile" data-drive="1qqvm3lsZGIGRYDfipAufALuGHOQ9ShKt"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1qqvm3lsZGIGRYDfipAufALuGHOQ9ShKt&sz=w1200" alt="Women and Girls in Science video"><span>播放 PLAY ↗</span></div><div class="tile-meta"><h4>国际妇女和女童科学日 <small>Women & Girls in Science</small></h4><p>创意 · 制作 · 剪辑</p></div></article>
+          <article class="video-tile" data-drive="1oGVDqsm2a6DGCMuq2C-YIwPeQy8pVgU7"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=18jXqVVtflChHCfY-GOqw11yodHGurZy3&sz=w1200" alt="PANDA Mini Valentine video"><span>播放 PLAY ↗</span></div><div class="tile-meta"><h4>PANDA Mini 情人节 <small>Valentine Campaign</small></h4><p>创意 · 视频 · Social</p></div></article>
         </div>
       </div>
 
       <div class="archive-stage">
-        <div class="archive-copy"><div class="micro-label">CREATIVE ARCHIVE</div><h3>A wider field.</h3><p>Selected work kept here as evidence of range, consistency and volume.</p></div>
+        <div class="archive-copy"><div class="micro-label">更多视觉输出 <small>SELECTED VISUAL WORK</small></div><h3>更多输出，直接看。</h3><p class="zh-copy">不额外包装成 Case Study，把真实创意产出按原比例放出来，更适合看范围、稳定度和视觉判断。</p><p class="lede-en compact">A broader view of range, consistency and visual judgment.</p></div>
         <div class="archive-wall">
           <button class="archive-card a1" data-img="https://drive.google.com/thumbnail?id=1avs8P0p-6wO0DHa9mkqA9c5UyXZ3FtVe&sz=w1200" data-title="Spring Festival Interactive"><img src="https://drive.google.com/thumbnail?id=1avs8P0p-6wO0DHa9mkqA9c5UyXZ3FtVe&sz=w1200" alt="Spring Festival creative"></button>
           <button class="archive-card a2" data-img="https://drive.google.com/thumbnail?id=18TD2QDw-7kOKbHOiSxh87ERk4RRCptze&sz=w1200" data-title="Olympics × Product"><img src="https://drive.google.com/thumbnail?id=18TD2QDw-7kOKbHOiSxh87ERk4RRCptze&sz=w1200" alt="Olympics product creative"></button>
@@ -117,28 +122,29 @@
       </div>
 
       <div class="directed-stage">
-        <div class="directed-head"><div class="micro-label">AGENCY COLLABORATION</div><h3>Built with others.</h3><p>Projects created with external agencies, with my role clearly on the brand and marketing side.</p></div>
+        <div class="directed-head"><div class="micro-label">与外部团队协作 <small>AGENCY COLLABORATION</small></div><h3>合作项目，也把我的角色写清楚。</h3><p class="zh-copy">这些项目由外部 Agency 参与制作；我的职责集中在 Creative Brief、信息策略、创意方向、沟通推进与 Final Review。</p><p class="lede-en compact">Brand-side direction, messaging, coordination and review.</p></div>
         <div class="agency-list">
-          <a href="https://www.youtube.com/playlist?list=PLejXy5_y33GOpKcTbB0aILJctP2rOasT5" target="_blank" rel="noreferrer"><span>01</span><strong>Extraction Instrument Series</strong><em>Creative brief · messaging · agency coordination · review</em><b>↗</b></a>
-          <a href="https://www.youtube.com/watch?v=8aRFsRQNIk4" target="_blank" rel="noreferrer"><span>02</span><strong>Plate Reagent Commercial</strong><em>Creative direction · script feedback · review</em><b>↗</b></a>
-          <a href="https://www.youtube.com/watch?v=M3huUupeHuE" target="_blank" rel="noreferrer"><span>03</span><strong>Quantification Instrument Video</strong><em>Brief · messaging · coordination · final review</em><b>↗</b></a>
-          <a href="https://www.youtube.com/watch?v=eJua4u2G5Co" target="_blank" rel="noreferrer"><span>04</span><strong>Vazyme Factory Story</strong><em>Brand-side direction · coordination · review</em><b>↗</b></a>
+          <a href="https://www.youtube.com/playlist?list=PLejXy5_y33GOpKcTbB0aILJctP2rOasT5" target="_blank" rel="noreferrer"><span>01</span><strong>核酸提取仪器系列 <small>Extraction Instrument Series</small></strong><em>Brief · Messaging · Agency Coordination · Review</em><b>↗</b></a>
+          <a href="https://www.youtube.com/watch?v=8aRFsRQNIk4" target="_blank" rel="noreferrer"><span>02</span><strong>板式试剂商业视频 <small>Plate Reagent Commercial</small></strong><em>Creative Direction · Script Feedback · Review</em><b>↗</b></a>
+          <a href="https://www.youtube.com/watch?v=M3huUupeHuE" target="_blank" rel="noreferrer"><span>03</span><strong>定量仪器视频 <small>Quantification Instrument Video</small></strong><em>Brief · Messaging · Coordination · Final Review</em><b>↗</b></a>
+          <a href="https://www.youtube.com/watch?v=eJua4u2G5Co" target="_blank" rel="noreferrer"><span>04</span><strong>Vazyme 工厂故事 <small>Factory Story</small></strong><em>Brand-side Direction · Coordination · Review</em><b>↗</b></a>
         </div>
       </div>
 
       <div class="build-transition">
-        <p>Making more was never the goal.</p>
-        <h3>Building a better way to make was.</h3>
-        <div class="pipeline"><span>PRODUCT INPUT</span><i>→</i><span>CAMPAIGN LOGIC</span><i>→</i><span>AI CONTENT SYSTEM</span><i>→</i><span>MULTI-CHANNEL OUTPUT</span></div>
-        <div class="coming">NEXT SPACE · BUILD</div>
+        <p>内容是输出，方法和系统才会留下来。</p>
+        <h3>我真正想搭的，是一套能持续运转的营销系统。</h3>
+        <div class="pipeline"><span>产品信息 <small>INPUT</small></span><i>→</i><span>Campaign 逻辑 <small>STRATEGY</small></span><i>→</i><span>AI 内容系统 <small>BUILD</small></span><i>→</i><span>多渠道输出 <small>OUTPUT</small></span></div>
+        <div class="coming">NEXT SPACE · BUILD / SYSTEM</div>
       </div>
     </section>
 
     <section id="about" class="about section-full">
-      <div class="section-kicker">03 / ABOUT</div>
-      <h2>Global marketer.<br><em>Builder by instinct.</em></h2>
-      <p>Working across B2C, B2B, content, paid media and AI-enabled workflows.</p>
-      <a href="#entry" class="primary-btn">BACK TO THE WORLD ↑</a>
+      <div class="section-kicker">03 / 关于我 <small>ABOUT</small></div>
+      <h2>从执行，到策略，<br><em>再到系统化。</em></h2>
+      <p class="zh-copy">我的经历横跨 ToC 与 ToB、社媒内容、Paid Media、视频和 AI 工作流。现在更关注的是：怎么把这些能力连起来，形成一套更高效、更可复用的海外营销方法。</p>
+      <p class="lede-en">From hands-on execution to strategy and systems across global B2C and B2B marketing.</p>
+      <a href="#entry" class="primary-btn"><span>回到工作台</span><small>BACK TO THE WORLD ↑</small></a>
     </section>
   </main>
 
