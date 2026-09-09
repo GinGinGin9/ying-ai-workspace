@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ying — AI-native marketing workspace. Strategy, creative, systems and optimization." />
+  <title>Ying / AI Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <canvas id="three-canvas" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#entry">YING / AI WORKSPACE</a>
+    <nav>
+      <a href="#workspace">SYSTEM</a>
+      <a href="#create">WORK</a>
+      <a href="#about">ABOUT</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="entry" class="entry section-full">
+      <div class="entry-copy">
+        <p class="eyebrow">GLOBAL DIGITAL MARKETING · AI-NATIVE WORKFLOWS</p>
+        <h1>I BUILD<br><span>WITH AI.</span></h1>
+        <p class="lede">Strategy, content, creative and systems — connected into one way of working.</p>
+        <button id="enterBtn" class="primary-btn">ENTER WORKSPACE <span>↘</span></button>
+      </div>
+      <div class="entry-orbit" aria-hidden="true">
+        <span data-i="0">RESEARCH</span><span data-i="1">STRATEGY</span><span data-i="2">CREATE</span><span data-i="3">BUILD</span><span data-i="4">OPTIMIZE</span>
+      </div>
+      <div class="scroll-hint">SCROLL TO EXPLORE</div>
+    </section>
+
+    <section id="workspace" class="workspace section-full">
+      <div class="section-kicker">01 / SYSTEM</div>
+      <div class="workspace-intro">
+        <p class="eyebrow">THIS IS HOW I WORK WITH AI.</p>
+        <h2>Five spaces.<br>One connected system.</h2>
+      </div>
+
+      <div class="spatial-grid" id="spatialGrid">
+        <article class="cap-card c-research" data-cap="research">
+          <div class="cap-index">01</div><div class="cap-copy"><h3>RESEARCH</h3><p>Find the signal.</p><small>Market · audience · competitor intelligence</small></div>
+        </article>
+        <article class="cap-card c-strategy" data-cap="strategy">
+          <div class="cap-index">02</div><div class="cap-copy"><h3>STRATEGY</h3><p>Decide what matters.</p><small>Positioning · campaign · channel logic</small></div>
+        </article>
+        <article class="cap-card c-create active" data-cap="create">
+          <div class="cap-index">03</div><div class="cap-copy"><h3>CREATE</h3><p>Make it real.</p><small>Content · visual · video · experience</small></div>
+        </article>
+        <article class="cap-card c-build" data-cap="build">
+          <div class="cap-index">04</div><div class="cap-copy"><h3>BUILD</h3><p>Turn work into systems.</p><small>AI workflows · agents · reusable processes</small></div>
+        </article>
+        <article class="cap-card c-optimize" data-cap="optimize">
+          <div class="cap-index">05</div><div class="cap-copy"><h3>OPTIMIZE</h3><p>Learn from performance.</p><small>Data · iteration · feedback loops</small></div>
+        </article>
+      </div>
+      <a class="explore-create" href="#create">ENTER CREATE <span>↓</span></a>
+    </section>
+
+    <section id="create" class="create-section">
+      <div class="create-sticky">
+        <div class="section-kicker">02 / CREATE</div>
+        <div class="create-heading">
+          <p class="eyebrow">MAKE IT REAL.</p>
+          <h2>Ideas become things people can <span>see, watch and use.</span></h2>
+          <p>Campaigns, product storytelling, motion and social content — developed hands-on and across external creative teams.</p>
+        </div>
+      </div>
+
+      <div class="campaign-stage">
+        <div class="campaign-copy">
+          <div class="micro-label">HERO CASE · INTEGRATED CAMPAIGN</div>
+          <h3>FMR-5S</h3>
+          <p>An integrated product campaign built across teaser, launch and long-tail content.</p>
+          <div class="pill-row"><span>QUIZ</span><span>TEASER</span><span>VIDEO</span><span>POSTER</span><span>BROCHURE</span></div>
+          <button class="text-btn" data-modal="fmr">VIEW CASE ↗</button>
+        </div>
+        <div class="campaign-cloud" id="campaignCloud">
+          <button class="media-card m1" data-img="https://drive.google.com/thumbnail?id=1eBDRui0RkS5uQxMm-QM9NEQCPHDU2bbR&sz=w1400" data-title="FMR-5S · Launch Visual"><img src="https://drive.google.com/thumbnail?id=1eBDRui0RkS5uQxMm-QM9NEQCPHDU2bbR&sz=w1400" alt="FMR-5S launch visual"></button>
+          <button class="media-card m2" data-img="https://drive.google.com/thumbnail?id=1tCp_U66XmLnWxDkXcWb7xYZr4EbzuEaO&sz=w1400" data-title="FMR-5S · Campaign Extension"><img src="https://drive.google.com/thumbnail?id=1tCp_U66XmLnWxDkXcWb7xYZr4EbzuEaO&sz=w1400" alt="FMR-5S campaign extension"></button>
+          <button class="media-card m3" data-img="https://drive.google.com/thumbnail?id=12OTRD5GH8ImYvXXHjuoTm-xs8B2Lq4xo&sz=w1400" data-title="PANDA · Product Creative"><img src="https://drive.google.com/thumbnail?id=12OTRD5GH8ImYvXXHjuoTm-xs8B2Lq4xo&sz=w1400" alt="PANDA product creative"></button>
+        </div>
+      </div>
+
+      <div class="work-strip">
+        <div class="strip-head"><div><div class="micro-label">SELF-PRODUCED</div><h3>Made by me.</h3></div><p>Selected videos from concept through production and edit.</p></div>
+        <div class="video-grid">
+          <article class="video-tile" data-drive="1VUd3TOj6qdnYuNazFzN9SsJBIKK_y28z">
+            <div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1VUd3TOj6qdnYuNazFzN9SsJBIKK_y28z&sz=w1200" alt="Product operation video"><span>PLAY ↗</span></div>
+            <div class="tile-meta"><h4>Product Operation</h4><p>Concept · Production · Editing</p></div>
+          </article>
+          <article class="video-tile" data-drive="1-LxF7sNQq0Rwa22kqEn8-nsUmn-mVgys">
+            <div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1-LxF7sNQq0Rwa22kqEn8-nsUmn-mVgys&sz=w1200" alt="World Environment Day video"><span>PLAY ↗</span></div>
+            <div class="tile-meta"><h4>World Environment Day</h4><p>Concept · Content · Production</p></div>
+          </article>
+          <article class="video-tile" data-drive="1qqvm3lsZGIGRYDfipAufALuGHOQ9ShKt">
+            <div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1qqvm3lsZGIGRYDfipAufALuGHOQ9ShKt&sz=w1200" alt="Women and Girls in Science video"><span>PLAY ↗</span></div>
+            <div class="tile-meta"><h4>Women & Girls in Science</h4><p>Creative · Production · Editing</p></div>
+          </article>
+          <article class="video-tile" data-drive="1oGVDqsm2a6DGCMuq2C-YIwPeQy8pVgU7">
+            <div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1oGVDqsm2a6DGCMuq2C-YIwPeQy8pVgU7&sz=w1200" alt="PANDA Mini seasonal video"><span>PLAY ↗</span></div>
+            <div class="tile-meta"><h4>PANDA Mini · Seasonal</h4><p>Concept · Video · Social</p></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="archive-stage">
+        <div class="archive-copy"><div class="micro-label">CREATIVE ARCHIVE</div><h3>Not every piece needs a case study.</h3><p>Some work is here simply as evidence of range, consistency and volume.</p></div>
+        <div class="archive-wall">
+          <button class="archive-card a1" data-img="https://drive.google.com/thumbnail?id=1avs8P0p-6wO0DHa9mkqA9c5UyXZ3FtVe&sz=w1200" data-title="Spring Festival Interactive"><img src="https://drive.google.com/thumbnail?id=1avs8P0p-6wO0DHa9mkqA9c5UyXZ3FtVe&sz=w1200" alt="Spring Festival creative"></button>
+          <button class="archive-card a2" data-img="https://drive.google.com/thumbnail?id=18TD2QDw-7kOKbHOiSxh87ERk4RRCptze&sz=w1200" data-title="Olympics × Product"><img src="https://drive.google.com/thumbnail?id=18TD2QDw-7kOKbHOiSxh87ERk4RRCptze&sz=w1200" alt="Olympics product creative"></button>
+          <button class="archive-card a3" data-img="https://drive.google.com/thumbnail?id=1oDffoWoUyj1g7uQMg3qy0TX3z5pBLIZm&sz=w1200" data-title="Valentine's × Product"><img src="https://drive.google.com/thumbnail?id=1oDffoWoUyj1g7uQMg3qy0TX3z5pBLIZm&sz=w1200" alt="Valentine product creative"></button>
+          <button class="archive-card a4" data-img="https://drive.google.com/thumbnail?id=1p-3y8sTC27jNOQjrzarb6eQN5HTVQxbg&sz=w1200" data-title="World Mosquito Day × Solution"><img src="https://drive.google.com/thumbnail?id=1p-3y8sTC27jNOQjrzarb6eQN5HTVQxbg&sz=w1200" alt="World Mosquito Day creative"></button>
+          <button class="archive-card a5" data-img="https://drive.google.com/thumbnail?id=1ZzFSSezpp1sSwSCkMuN9dwkPeFsekDF7&sz=w1200" data-title="RN416 Product Visual"><img src="https://drive.google.com/thumbnail?id=1ZzFSSezpp1sSwSCkMuN9dwkPeFsekDF7&sz=w1200" alt="RN416 product visual"></button>
+          <button class="archive-card a6" data-img="https://drive.google.com/thumbnail?id=1UaPolOUYXjoC_UPv6oCe_HjKFGeSHvGN&sz=w1200" data-title="R4 Series Product Visual"><img src="https://drive.google.com/thumbnail?id=1UaPolOUYXjoC_UPv6oCe_HjKFGeSHvGN&sz=w1200" alt="R4 series product visual"></button>
+        </div>
+      </div>
+
+      <div class="directed-stage">
+        <div class="directed-head"><div class="micro-label">AGENCY COLLABORATION</div><h3>Directed, not claimed.</h3><p>Projects created with external agencies, with my role on the brand/marketing side.</p></div>
+        <div class="agency-list">
+          <a href="https://www.youtube.com/playlist?list=PLejXy5_y33GOpKcTbB0aILJctP2rOasT5" target="_blank" rel="noreferrer"><span>01</span><strong>Extraction Instrument Series</strong><em>Creative brief · messaging · agency coordination · review</em><b>↗</b></a>
+          <a href="https://www.youtube.com/watch?v=8aRFsRQNIk4" target="_blank" rel="noreferrer"><span>02</span><strong>Plate Reagent Commercial</strong><em>Creative direction · script feedback · review</em><b>↗</b></a>
+          <a href="https://www.youtube.com/watch?v=M3huUupeHuE" target="_blank" rel="noreferrer"><span>03</span><strong>Quantification Instrument Video</strong><em>Brief · messaging · coordination · final review</em><b>↗</b></a>
+          <a href="https://www.youtube.com/watch?v=eJua4u2G5Co" target="_blank" rel="noreferrer"><span>04</span><strong>Vazyme Factory Story</strong><em>Brand-side direction · coordination · review</em><b>↗</b></a>
+        </div>
+      </div>
+
+      <div class="build-transition">
+        <p>Making more was never the goal.</p>
+        <h3>Building a better way to make was.</h3>
+        <div class="pipeline"><span>PRODUCT INPUT</span><i>→</i><span>CAMPAIGN LOGIC</span><i>→</i><span>AI CONTENT SYSTEM</span><i>→</i><span>MULTI-CHANNEL OUTPUT</span></div>
+        <div class="coming">NEXT SPACE · BUILD</div>
+      </div>
+    </section>
+
+    <section id="about" class="about section-full">
+      <div class="section-kicker">03 / ABOUT</div>
+      <h2>Global marketer.<br><span>AI-native operator.</span></h2>
+      <p>Working across B2C, B2B, content, paid media and AI-enabled workflows.</p>
+      <a href="#entry" class="primary-btn">BACK TO WORKSPACE ↑</a>
+    </section>
+  </main>
+
+  <dialog id="mediaModal" class="modal">
+    <button class="modal-close" aria-label="Close">×</button>
+    <div class="modal-inner"><div id="modalContent"></div></div>
+  </dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
