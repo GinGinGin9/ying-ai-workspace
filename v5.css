@@ -26,19 +26,18 @@ body{font-family:var(--font-ui)!important}
 .workspace-intro h2,.create-heading h2,.about h2{font-weight:700!important;letter-spacing:-.04em!important;line-height:1.08!important}
 .campaign-copy h3,.strip-head h3,.archive-copy h3,.directed-head h3,.build-transition h3{font-weight:700!important;letter-spacing:-.035em!important}
 
-/* Do not let an animation failure make actual portfolio content disappear. */
+/* Portfolio content is visible by default; GSAP may temporarily override opacity inline. */
 .workspace-intro,.cap-card,.campaign-copy,.campaign-cloud .media-card,
 .work-strip,.work-strip .strip-head,.video-tile,.archive-stage,.archive-copy,
 .archive-card,.directed-stage,.directed-head,.agency-list,.agency-list a,
 .build-transition,.about>*{
-  opacity:1!important;
+  opacity:1;
   visibility:visible!important;
 }
 
 /* Light section: let the Three.js world breathe through very subtly. */
 .workspace{
-  background:
-    linear-gradient(180deg,rgba(245,241,234,.92),rgba(236,230,222,.89))!important;
+  background:linear-gradient(180deg,rgba(245,241,234,.92),rgba(236,230,222,.89))!important;
   min-height:0!important;
   padding-top:86px!important;
   padding-bottom:82px!important;
