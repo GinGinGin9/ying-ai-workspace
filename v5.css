@@ -8,8 +8,6 @@
 html,body,button,input,textarea,select{font-family:var(--font-ui)!important}
 body{font-family:var(--font-ui)!important}
 
-/* Chinese falls back to Microsoft YaHei because Arial has no CJK glyphs;
-   English stays Arial. Remove the mixed editorial serif treatment. */
 .entry h1,.workspace-intro h2,.create-heading h2,.about h2,
 .campaign-copy h3,.strip-head h3,.archive-copy h3,.directed-head h3,.build-transition h3,
 .cap-copy h3,.cap-copy p,.world-label small,.entry h1 em,.workspace-intro h2 em,
@@ -21,21 +19,25 @@ body{font-family:var(--font-ui)!important}
 .entry h1 em,.create-heading h2 em,.about h2 em{color:var(--violet-on-dark)!important}
 .workspace-intro h2 em{color:var(--violet-on-light)!important}
 
-/* Stronger, calmer hierarchy */
 .entry h1{font-weight:700!important;letter-spacing:-.045em!important;line-height:1.06!important}
 .workspace-intro h2,.create-heading h2,.about h2{font-weight:700!important;letter-spacing:-.04em!important;line-height:1.08!important}
 .campaign-copy h3,.strip-head h3,.archive-copy h3,.directed-head h3,.build-transition h3{font-weight:700!important;letter-spacing:-.035em!important}
 
-/* Portfolio content is visible by default; GSAP may temporarily override opacity inline. */
-.workspace-intro,.cap-card,.campaign-copy,.campaign-cloud .media-card,
-.work-strip,.work-strip .strip-head,.video-tile,.archive-stage,.archive-copy,
-.archive-card,.directed-stage,.directed-head,.agency-list,.agency-list a,
-.build-transition,.about>*{
-  opacity:1;
+/* Critical content must stay visible regardless of GSAP/ScrollTrigger state. */
+.spatial-grid,.cap-card,
+.agency-list,.agency-list a,
+.video-grid,.video-tile,
+.archive-wall,.archive-card,
+.campaign-cloud,.campaign-cloud .media-card{
+  opacity:1!important;
   visibility:visible!important;
 }
 
-/* Light section: let the Three.js world breathe through very subtly. */
+.workspace-intro,.campaign-copy,.work-strip,.archive-stage,.archive-copy,
+.directed-stage,.directed-head,.build-transition,.about>*{
+  visibility:visible!important;
+}
+
 .workspace{
   background:linear-gradient(180deg,rgba(245,241,234,.92),rgba(236,230,222,.89))!important;
   min-height:0!important;
@@ -54,7 +56,6 @@ body{font-family:var(--font-ui)!important}
 .cap-copy>small{font-size:9px!important}
 .explore-create{margin-top:24px!important}
 
-/* Dark sections: reduce dead vertical bands and keep the content dense enough to scan. */
 .create-sticky{padding-top:78px!important;padding-bottom:24px!important}
 .campaign-stage,.work-strip,.archive-stage,.directed-stage{padding-top:46px!important;padding-bottom:46px!important}
 .directed-stage{padding-bottom:38px!important}
@@ -65,9 +66,8 @@ body{font-family:var(--font-ui)!important}
 .archive-copy{top:98px!important}
 .directed-head{max-width:860px!important}
 .agency-list{margin-top:28px!important}
-.agency-list a{padding:20px 0!important}
+.agency-list a{padding:20px 0!important;min-height:70px!important}
 
-/* Purple contrast rules */
 .workspace .section-kicker,.workspace .eyebrow,.workspace .section-note{color:#5f5863!important}
 .workspace .section-kicker small,.workspace .eyebrow small,.workspace .explore-create small{color:var(--violet-on-light)!important;opacity:.9!important}
 .create-section .section-kicker small,.create-section .micro-label small,
@@ -75,19 +75,16 @@ body{font-family:var(--font-ui)!important}
 .create-section .text-btn,.create-section .text-btn small,.build-transition .coming,
 .pipeline i{color:var(--violet-on-dark)!important}
 
-/* Header */
 .topbar{font-family:var(--font-ui)!important}
 .brand,.topbar nav a,.section-kicker,.eyebrow,.micro-label,.scroll-hint,.coming,.world-instruction{font-family:var(--font-ui)!important}
 .brand>span{font-weight:700}
 .topbar nav a>span{font-weight:700}
 
-/* Portal labels */
 .world-label{font-family:var(--font-ui)!important}
 .world-label strong{font-family:var(--font-ui)!important;font-weight:700!important}
 .world-label em,.world-label small{font-family:var(--font-ui)!important}
 .world-label small{color:var(--violet-on-dark)!important}
 
-/* Three.js canvases */
 #three-canvas{display:none!important}
 #three-magic-canvas{
   position:fixed;
@@ -104,11 +101,7 @@ body{font-family:var(--font-ui)!important}
 .world-ui{z-index:5}
 .topbar{z-index:40}
 
-/* Cards and media should never leave giant invisible click zones. */
-.agency-list a{min-height:70px}
 .video-tile,.archive-card,.media-card{pointer-events:auto}
-
-/* Modal typography */
 #modalContent h2{font-weight:700!important;line-height:1.08!important}
 .modal-caption,.case-links,.modal-drive-link{font-family:var(--font-ui)!important}
 
