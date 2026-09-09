@@ -3,21 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ying — AI-native marketing workspace. Strategy, creative, systems and optimization." />
-  <title>Ying / AI Workspace</title>
+  <meta name="description" content="Ying — global digital marketer working across strategy, creative, systems and AI-enabled workflows." />
+  <title>Ying / A World of Work</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <canvas id="three-canvas" aria-hidden="true"></canvas>
   <div class="grain" aria-hidden="true"></div>
+  <div class="world-ui" id="worldUi" aria-label="Interactive workspace map">
+    <button class="world-label" data-world="research"><span>01</span><strong>RESEARCH</strong><small>find the signal</small></button>
+    <button class="world-label" data-world="strategy"><span>02</span><strong>STRATEGY</strong><small>choose the path</small></button>
+    <button class="world-label" data-world="create"><span>03</span><strong>CREATE</strong><small>make it visible</small></button>
+    <button class="world-label" data-world="build"><span>04</span><strong>BUILD</strong><small>make it repeatable</small></button>
+    <button class="world-label" data-world="optimize"><span>05</span><strong>OPTIMIZE</strong><small>learn and refine</small></button>
+  </div>
 
   <header class="topbar">
-    <a class="brand" href="#entry">YING / AI WORKSPACE</a>
+    <a class="brand" href="#entry">YING / WORKSPACE</a>
     <nav>
-      <a href="#workspace">SYSTEM</a>
+      <a href="#workspace">WORLD</a>
       <a href="#create">WORK</a>
       <a href="#about">ABOUT</a>
     </nav>
@@ -26,22 +33,20 @@
   <main>
     <section id="entry" class="entry section-full">
       <div class="entry-copy">
-        <p class="eyebrow">GLOBAL DIGITAL MARKETING · AI-NATIVE WORKFLOWS</p>
-        <h1>I BUILD<br><span>WITH AI.</span></h1>
-        <p class="lede">Strategy, content, creative and systems — connected into one way of working.</p>
-        <button id="enterBtn" class="primary-btn">ENTER WORKSPACE <span>↘</span></button>
+        <p class="eyebrow">GLOBAL DIGITAL MARKETING · CREATIVE SYSTEMS</p>
+        <h1>A SMALL WORLD<br><em>OF WORK.</em></h1>
+        <p class="lede">Strategy, content, campaigns and systems — built hands-on, with AI woven into the process rather than pasted on top.</p>
+        <button id="enterBtn" class="primary-btn">ENTER THE WORLD <span>↘</span></button>
       </div>
-      <div class="entry-orbit" aria-hidden="true">
-        <span data-i="0">RESEARCH</span><span data-i="1">STRATEGY</span><span data-i="2">CREATE</span><span data-i="3">BUILD</span><span data-i="4">OPTIMIZE</span>
-      </div>
-      <div class="scroll-hint">SCROLL TO EXPLORE</div>
+      <div class="world-instruction">MOVE YOUR CURSOR · FIND A PORTAL</div>
+      <div class="scroll-hint">SCROLL TO TRAVEL</div>
     </section>
 
     <section id="workspace" class="workspace section-full">
-      <div class="section-kicker">01 / SYSTEM</div>
+      <div class="section-kicker">01 / THE WORLD</div>
       <div class="workspace-intro">
-        <p class="eyebrow">THIS IS HOW I WORK WITH AI.</p>
-        <h2>Five spaces.<br>One connected system.</h2>
+        <p class="eyebrow">FIVE PLACES I RETURN TO.</p>
+        <h2>One way of working,<br><em>seen from five angles.</em></h2>
       </div>
 
       <div class="spatial-grid" id="spatialGrid">
@@ -49,16 +54,16 @@
           <div class="cap-index">01</div><div class="cap-copy"><h3>RESEARCH</h3><p>Find the signal.</p><small>Market · audience · competitor intelligence</small></div>
         </article>
         <article class="cap-card c-strategy" data-cap="strategy">
-          <div class="cap-index">02</div><div class="cap-copy"><h3>STRATEGY</h3><p>Decide what matters.</p><small>Positioning · campaign · channel logic</small></div>
+          <div class="cap-index">02</div><div class="cap-copy"><h3>STRATEGY</h3><p>Choose the path.</p><small>Positioning · campaign · channel logic</small></div>
         </article>
         <article class="cap-card c-create active" data-cap="create">
-          <div class="cap-index">03</div><div class="cap-copy"><h3>CREATE</h3><p>Make it real.</p><small>Content · visual · video · experience</small></div>
+          <div class="cap-index">03</div><div class="cap-copy"><h3>CREATE</h3><p>Make it visible.</p><small>Content · visual · video · experience</small></div>
         </article>
         <article class="cap-card c-build" data-cap="build">
-          <div class="cap-index">04</div><div class="cap-copy"><h3>BUILD</h3><p>Turn work into systems.</p><small>AI workflows · agents · reusable processes</small></div>
+          <div class="cap-index">04</div><div class="cap-copy"><h3>BUILD</h3><p>Make it repeatable.</p><small>AI workflows · agents · reusable processes</small></div>
         </article>
         <article class="cap-card c-optimize" data-cap="optimize">
-          <div class="cap-index">05</div><div class="cap-copy"><h3>OPTIMIZE</h3><p>Learn from performance.</p><small>Data · iteration · feedback loops</small></div>
+          <div class="cap-index">05</div><div class="cap-copy"><h3>OPTIMIZE</h3><p>Learn and refine.</p><small>Data · iteration · feedback loops</small></div>
         </article>
       </div>
       <a class="explore-create" href="#create">ENTER CREATE <span>↓</span></a>
@@ -68,8 +73,8 @@
       <div class="create-sticky">
         <div class="section-kicker">02 / CREATE</div>
         <div class="create-heading">
-          <p class="eyebrow">MAKE IT REAL.</p>
-          <h2>Ideas become things people can <span>see, watch and use.</span></h2>
+          <p class="eyebrow">THE WORK BECOMES REAL HERE.</p>
+          <h2>Things people can<br><em>see, watch and use.</em></h2>
           <p>Campaigns, product storytelling, motion and social content — developed hands-on and across external creative teams.</p>
         </div>
       </div>
@@ -92,27 +97,15 @@
       <div class="work-strip">
         <div class="strip-head"><div><div class="micro-label">SELF-PRODUCED</div><h3>Made by me.</h3></div><p>Selected videos from concept through production and edit.</p></div>
         <div class="video-grid">
-          <article class="video-tile" data-drive="1VUd3TOj6qdnYuNazFzN9SsJBIKK_y28z">
-            <div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1VUd3TOj6qdnYuNazFzN9SsJBIKK_y28z&sz=w1200" alt="Product operation video"><span>PLAY ↗</span></div>
-            <div class="tile-meta"><h4>Product Operation</h4><p>Concept · Production · Editing</p></div>
-          </article>
-          <article class="video-tile" data-drive="1-LxF7sNQq0Rwa22kqEn8-nsUmn-mVgys">
-            <div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1-LxF7sNQq0Rwa22kqEn8-nsUmn-mVgys&sz=w1200" alt="World Environment Day video"><span>PLAY ↗</span></div>
-            <div class="tile-meta"><h4>World Environment Day</h4><p>Concept · Content · Production</p></div>
-          </article>
-          <article class="video-tile" data-drive="1qqvm3lsZGIGRYDfipAufALuGHOQ9ShKt">
-            <div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1qqvm3lsZGIGRYDfipAufALuGHOQ9ShKt&sz=w1200" alt="Women and Girls in Science video"><span>PLAY ↗</span></div>
-            <div class="tile-meta"><h4>Women & Girls in Science</h4><p>Creative · Production · Editing</p></div>
-          </article>
-          <article class="video-tile" data-drive="1oGVDqsm2a6DGCMuq2C-YIwPeQy8pVgU7">
-            <div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1oGVDqsm2a6DGCMuq2C-YIwPeQy8pVgU7&sz=w1200" alt="PANDA Mini seasonal video"><span>PLAY ↗</span></div>
-            <div class="tile-meta"><h4>PANDA Mini · Seasonal</h4><p>Concept · Video · Social</p></div>
-          </article>
+          <article class="video-tile" data-drive="1VUd3TOj6qdnYuNazFzN9SsJBIKK_y28z"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1VUd3TOj6qdnYuNazFzN9SsJBIKK_y28z&sz=w1200" alt="Product operation video"><span>PLAY ↗</span></div><div class="tile-meta"><h4>Product Operation</h4><p>Concept · Production · Editing</p></div></article>
+          <article class="video-tile" data-drive="1-LxF7sNQq0Rwa22kqEn8-nsUmn-mVgys"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1-LxF7sNQq0Rwa22kqEn8-nsUmn-mVgys&sz=w1200" alt="World Environment Day video"><span>PLAY ↗</span></div><div class="tile-meta"><h4>World Environment Day</h4><p>Concept · Content · Production</p></div></article>
+          <article class="video-tile" data-drive="1qqvm3lsZGIGRYDfipAufALuGHOQ9ShKt"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1qqvm3lsZGIGRYDfipAufALuGHOQ9ShKt&sz=w1200" alt="Women and Girls in Science video"><span>PLAY ↗</span></div><div class="tile-meta"><h4>Women & Girls in Science</h4><p>Creative · Production · Editing</p></div></article>
+          <article class="video-tile" data-drive="1oGVDqsm2a6DGCMuq2C-YIwPeQy8pVgU7"><div class="video-cover"><img src="https://drive.google.com/thumbnail?id=1oGVDqsm2a6DGCMuq2C-YIwPeQy8pVgU7&sz=w1200" alt="PANDA Mini seasonal video"><span>PLAY ↗</span></div><div class="tile-meta"><h4>PANDA Mini · Seasonal</h4><p>Concept · Video · Social</p></div></article>
         </div>
       </div>
 
       <div class="archive-stage">
-        <div class="archive-copy"><div class="micro-label">CREATIVE ARCHIVE</div><h3>Not every piece needs a case study.</h3><p>Some work is here simply as evidence of range, consistency and volume.</p></div>
+        <div class="archive-copy"><div class="micro-label">CREATIVE ARCHIVE</div><h3>A wider field.</h3><p>Selected work kept here as evidence of range, consistency and volume.</p></div>
         <div class="archive-wall">
           <button class="archive-card a1" data-img="https://drive.google.com/thumbnail?id=1avs8P0p-6wO0DHa9mkqA9c5UyXZ3FtVe&sz=w1200" data-title="Spring Festival Interactive"><img src="https://drive.google.com/thumbnail?id=1avs8P0p-6wO0DHa9mkqA9c5UyXZ3FtVe&sz=w1200" alt="Spring Festival creative"></button>
           <button class="archive-card a2" data-img="https://drive.google.com/thumbnail?id=18TD2QDw-7kOKbHOiSxh87ERk4RRCptze&sz=w1200" data-title="Olympics × Product"><img src="https://drive.google.com/thumbnail?id=18TD2QDw-7kOKbHOiSxh87ERk4RRCptze&sz=w1200" alt="Olympics product creative"></button>
@@ -124,7 +117,7 @@
       </div>
 
       <div class="directed-stage">
-        <div class="directed-head"><div class="micro-label">AGENCY COLLABORATION</div><h3>Directed, not claimed.</h3><p>Projects created with external agencies, with my role on the brand/marketing side.</p></div>
+        <div class="directed-head"><div class="micro-label">AGENCY COLLABORATION</div><h3>Built with others.</h3><p>Projects created with external agencies, with my role clearly on the brand and marketing side.</p></div>
         <div class="agency-list">
           <a href="https://www.youtube.com/playlist?list=PLejXy5_y33GOpKcTbB0aILJctP2rOasT5" target="_blank" rel="noreferrer"><span>01</span><strong>Extraction Instrument Series</strong><em>Creative brief · messaging · agency coordination · review</em><b>↗</b></a>
           <a href="https://www.youtube.com/watch?v=8aRFsRQNIk4" target="_blank" rel="noreferrer"><span>02</span><strong>Plate Reagent Commercial</strong><em>Creative direction · script feedback · review</em><b>↗</b></a>
@@ -143,9 +136,9 @@
 
     <section id="about" class="about section-full">
       <div class="section-kicker">03 / ABOUT</div>
-      <h2>Global marketer.<br><span>AI-native operator.</span></h2>
+      <h2>Global marketer.<br><em>Builder by instinct.</em></h2>
       <p>Working across B2C, B2B, content, paid media and AI-enabled workflows.</p>
-      <a href="#entry" class="primary-btn">BACK TO WORKSPACE ↑</a>
+      <a href="#entry" class="primary-btn">BACK TO THE WORLD ↑</a>
     </section>
   </main>
 
