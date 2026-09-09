@@ -1,0 +1,119 @@
+/* V5 — typography lock, content visibility, tighter layout, Three.js bleed-through */
+:root{
+  --font-ui: Arial, "Microsoft YaHei", sans-serif;
+  --violet-on-light:#55356f;
+  --violet-on-dark:#eadfff;
+}
+
+html,body,button,input,textarea,select{font-family:var(--font-ui)!important}
+body{font-family:var(--font-ui)!important}
+
+/* Chinese falls back to Microsoft YaHei because Arial has no CJK glyphs;
+   English stays Arial. Remove the mixed editorial serif treatment. */
+.entry h1,.workspace-intro h2,.create-heading h2,.about h2,
+.campaign-copy h3,.strip-head h3,.archive-copy h3,.directed-head h3,.build-transition h3,
+.cap-copy h3,.cap-copy p,.world-label small,.entry h1 em,.workspace-intro h2 em,
+.create-heading h2 em,.about h2 em,#modalContent h2{
+  font-family:var(--font-ui)!important;
+  font-style:normal!important;
+}
+
+.entry h1 em,.create-heading h2 em,.about h2 em{color:var(--violet-on-dark)!important}
+.workspace-intro h2 em{color:var(--violet-on-light)!important}
+
+/* Stronger, calmer hierarchy */
+.entry h1{font-weight:700!important;letter-spacing:-.045em!important;line-height:1.06!important}
+.workspace-intro h2,.create-heading h2,.about h2{font-weight:700!important;letter-spacing:-.04em!important;line-height:1.08!important}
+.campaign-copy h3,.strip-head h3,.archive-copy h3,.directed-head h3,.build-transition h3{font-weight:700!important;letter-spacing:-.035em!important}
+
+/* Do not let an animation failure make actual portfolio content disappear. */
+.workspace-intro,.cap-card,.campaign-copy,.campaign-cloud .media-card,
+.work-strip,.work-strip .strip-head,.video-tile,.archive-stage,.archive-copy,
+.archive-card,.directed-stage,.directed-head,.agency-list,.agency-list a,
+.build-transition,.about>*{
+  opacity:1!important;
+  visibility:visible!important;
+}
+
+/* Light section: let the Three.js world breathe through very subtly. */
+.workspace{
+  background:
+    linear-gradient(180deg,rgba(245,241,234,.92),rgba(236,230,222,.89))!important;
+  min-height:0!important;
+  padding-top:86px!important;
+  padding-bottom:82px!important;
+}
+.workspace:before{opacity:.72}
+.workspace:after{opacity:.72}
+
+.workspace-intro h2{margin-top:14px!important;margin-bottom:18px!important;max-width:980px!important}
+.workspace .section-note{max-width:790px!important}
+.spatial-grid{margin-top:30px!important;gap:12px!important}
+.cap-card{min-height:146px!important;padding:20px!important}
+.cap-copy h3{font-size:20px!important;margin-bottom:8px!important}
+.cap-copy p{font-size:15px!important;margin-bottom:9px!important}
+.cap-copy>small{font-size:9px!important}
+.explore-create{margin-top:24px!important}
+
+/* Dark sections: reduce dead vertical bands and keep the content dense enough to scan. */
+.create-sticky{padding-top:78px!important;padding-bottom:24px!important}
+.campaign-stage,.work-strip,.archive-stage,.directed-stage{padding-top:46px!important;padding-bottom:46px!important}
+.directed-stage{padding-bottom:38px!important}
+.campaign-stage:before,.work-strip:before,.archive-stage:before,.directed-stage:before{inset:10px 8px!important}
+.strip-head{padding-bottom:18px!important}
+.video-grid{margin-top:20px!important}
+.archive-stage{padding-top:52px!important}
+.archive-copy{top:98px!important}
+.directed-head{max-width:860px!important}
+.agency-list{margin-top:28px!important}
+.agency-list a{padding:20px 0!important}
+
+/* Purple contrast rules */
+.workspace .section-kicker,.workspace .eyebrow,.workspace .section-note{color:#5f5863!important}
+.workspace .section-kicker small,.workspace .eyebrow small,.workspace .explore-create small{color:var(--violet-on-light)!important;opacity:.9!important}
+.create-section .section-kicker small,.create-section .micro-label small,
+.create-section .lede-en,.create-section .lede-en.compact,.about .lede-en{color:#cbbfe0!important;opacity:.72!important}
+.create-section .text-btn,.create-section .text-btn small,.build-transition .coming,
+.pipeline i{color:var(--violet-on-dark)!important}
+
+/* Header */
+.topbar{font-family:var(--font-ui)!important}
+.brand,.topbar nav a,.section-kicker,.eyebrow,.micro-label,.scroll-hint,.coming,.world-instruction{font-family:var(--font-ui)!important}
+.brand>span{font-weight:700}
+.topbar nav a>span{font-weight:700}
+
+/* Portal labels */
+.world-label{font-family:var(--font-ui)!important}
+.world-label strong{font-family:var(--font-ui)!important;font-weight:700!important}
+.world-label em,.world-label small{font-family:var(--font-ui)!important}
+.world-label small{color:var(--violet-on-dark)!important}
+
+/* Three.js canvases */
+#three-canvas{display:none!important}
+#three-magic-canvas{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  pointer-events:none;
+  opacity:1;
+  transition:opacity .5s ease;
+}
+.entry,.create-section,.about{position:relative;z-index:2}
+.workspace{position:relative;z-index:2}
+.world-ui{z-index:5}
+.topbar{z-index:40}
+
+/* Cards and media should never leave giant invisible click zones. */
+.agency-list a{min-height:70px}
+.video-tile,.archive-card,.media-card{pointer-events:auto}
+
+/* Modal typography */
+#modalContent h2{font-weight:700!important;line-height:1.08!important}
+.modal-caption,.case-links,.modal-drive-link{font-family:var(--font-ui)!important}
+
+@media(max-width:900px){
+  .workspace{padding-top:70px!important;padding-bottom:68px!important}
+  .campaign-stage,.work-strip,.archive-stage,.directed-stage{padding-top:36px!important;padding-bottom:36px!important}
+}
