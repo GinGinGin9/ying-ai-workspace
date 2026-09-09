@@ -151,3 +151,43 @@ if(!reduce && matchMedia('(pointer:fine)').matches){
 
 // Current official Three.js module build + addons. Cache-busted for Pages.
 import('./magic-three.js?v=7').catch(err=>console.warn('Three.js scene unavailable:',err));
+
+// Activate the Strategy & Playbooks layer and keep its headline compact enough for Chinese line-breaking.
+import('./strategy-v11.js?v=12').then(()=>{
+  const section=$('#strategy');
+  if(!section) return;
+
+  const title=$('.strategy-head h2',section);
+  if(title) title.innerHTML='不只展示结果，<br><em>也展示判断过程。</em>';
+
+  const copy=$('.strategy-head-copy',section);
+  if(copy){
+    copy.innerHTML=`
+      <p>这部分收纳策略复盘、宣发路径与方法框架。它们不只是结果展示，更用来说明我如何拆解问题、形成判断，并把经验沉淀为可复用的方法。</p>
+      <small>Beyond outcomes, this section shows how I think, decide and structure marketing work.</small>
+      <small class="strategy-sanitize">SELECTED & SANITIZED FOR INTERVIEW USE</small>`;
+  }
+
+  if(!$('#strategy-v12-overrides')){
+    const style=document.createElement('style');
+    style.id='strategy-v12-overrides';
+    style.textContent=`
+      .strategy-head{max-width:1120px;grid-template-columns:minmax(0,1fr) minmax(320px,.8fr);gap:52px;align-items:end}
+      .strategy-head h2{font-size:clamp(48px,4.4vw,64px);line-height:1.1;letter-spacing:-.038em;max-width:760px;text-wrap:balance}
+      .strategy-head-copy p{font-size:15px;line-height:1.76}
+      .strategy-head-copy small{margin-top:10px;max-width:500px}
+      .strategy-head-copy .strategy-sanitize{margin-top:5px;opacity:.72}
+      .strategy-library{margin-top:38px;gap:12px}
+      .strategy-card{min-height:392px;padding:20px;border-radius:21px}
+      .doc-preview{min-height:188px;margin:17px 0 18px}
+      .strategy-card h3{font-size:19px}
+      .strategy-card p{font-size:12px;line-height:1.66}
+      @media(max-width:1000px){
+        .strategy-head{grid-template-columns:1fr;gap:18px}
+        .strategy-head h2{font-size:clamp(42px,10vw,58px);max-width:680px}
+        .strategy-library{margin-top:30px}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}).catch(err=>console.warn('Strategy & Playbooks unavailable:',err));
