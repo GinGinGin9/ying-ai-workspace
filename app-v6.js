@@ -74,5 +74,66 @@ if(!reduce && 'IntersectionObserver' in window){
   items.forEach(el=>io.observe(el));
 }
 
+// Persistent mouse-follow layer. Kept outside Three.js so it remains visible over light/dark sections.
+if(!reduce && matchMedia('(pointer:fine)').matches){
+  const aura=document.createElement('div');
+  aura.className='cursor-aura';
+  const core=document.createElement('div');
+  core.className='cursor-core';
+  document.body.append(aura,core);
+
+  let tx=-100,ty=-100,x=-100,y=-100,lastSpark=0;
+  const sparkPool=[];
+  const makeSpark=()=>{
+    const s=document.createElement('i');
+    s.className='cursor-spark';
+    document.body.appendChild(s);
+    return s;
+  };
+  for(let i=0;i<18;i++) sparkPool.push(makeSpark());
+  let sparkIndex=0;
+
+  function emitSpark(px,py){
+    const s=sparkPool[sparkIndex++%sparkPool.length];
+    const angle=Math.random()*Math.PI*2;
+    const dist=10+Math.random()*24;
+    const size=2+Math.random()*4;
+    s.style.setProperty('--sx',`${Math.cos(angle)*dist}px`);
+    s.style.setProperty('--sy',`${Math.sin(angle)*dist}px`);
+    s.style.width=`${size}px`;
+    s.style.height=`${size}px`;
+    s.style.left=`${px}px`;
+    s.style.top=`${py}px`;
+    s.classList.remove('is-live');
+    void s.offsetWidth;
+    s.classList.add('is-live');
+  }
+
+  window.addEventListener('pointermove',e=>{
+    tx=e.clientX;ty=e.clientY;
+    core.style.transform=`translate3d(${tx}px,${ty}px,0)`;
+    const now=performance.now();
+    if(now-lastSpark>34){
+      emitSpark(tx,ty);
+      if(Math.random()>.72) emitSpark(tx,ty);
+      lastSpark=now;
+    }
+    aura.classList.add('is-visible');
+    core.classList.add('is-visible');
+  },{passive:true});
+  window.addEventListener('pointerleave',()=>{
+    aura.classList.remove('is-visible');
+    core.classList.remove('is-visible');
+  });
+
+  function follow(){
+    x+=(tx-x)*.14;
+    y+=(ty-y)*.14;
+    aura.style.transform=`translate3d(${x}px,${y}px,0)`;
+    requestAnimationFrame(follow);
+  }
+  follow();
+}
+
 // Current official Three.js module build + addons. Cache-busted for Pages.
-import('./magic-three.js?v=6').catch(err=>console.warn('Three.js scene unavailable:',err));
+import('./magic-three.js?v=7').catch(err=>console.warn('Three.js scene unavailable:',err));
