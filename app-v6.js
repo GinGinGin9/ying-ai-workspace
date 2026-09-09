@@ -13,6 +13,20 @@ forceCriticalVisible();
 window.addEventListener('DOMContentLoaded',forceCriticalVisible,{once:true});
 window.addEventListener('load',forceCriticalVisible,{once:true});
 
+// FMR-5S case must only contain verified FMR-5S assets.
+const campaignCloud=$('#campaignCloud');
+if(campaignCloud){
+  campaignCloud.querySelector('.m3')?.remove();
+  campaignCloud.classList.add('two-up');
+  if(!$('link[data-campaign-fix]')){
+    const fix=document.createElement('link');
+    fix.rel='stylesheet';
+    fix.href='./campaign-fix-v8-2.css?v=8.2';
+    fix.dataset.campaignFix='true';
+    document.head.appendChild(fix);
+  }
+}
+
 $('#enterBtn')?.addEventListener('click',()=>$('#workspace')?.scrollIntoView({behavior:reduce?'auto':'smooth'}));
 window.addEventListener('scroll',()=>$('.topbar')?.classList.toggle('scrolled',window.scrollY>24),{passive:true});
 
