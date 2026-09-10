@@ -27,6 +27,12 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Build fresh portfolio assets
+        run: |
+          cp app-v6.js app-v16.js
+          cp portfolio-copy-v14.js portfolio-copy-v15.js
+          sed -i 's#./portfolio-copy-v14.js?v=15#./portfolio-copy-v15.js?v=15#g' app-v16.js
+          sed -i 's#./app-v6.js?v=9#./app-v16.js?v=16#g' index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
