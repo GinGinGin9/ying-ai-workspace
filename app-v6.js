@@ -173,5 +173,5 @@ import('./strategy-v11.js?v=12').then(()=>{
     document.head.appendChild(style);
   }
 
-  return import('./portfolio-copy-v14.js?v=14');
+  return import('./portfolio-copy-v14.js?v=15');
 }).catch(err=>console.warn('Portfolio copy unavailable:',err));
