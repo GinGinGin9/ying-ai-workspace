@@ -31,8 +31,10 @@ jobs:
         run: |
           cp app-v6.js app-v16.js
           cp portfolio-copy-v14.js portfolio-copy-v15.js
+          cp portfolio-v9.js portfolio-v16.js
           sed -i 's#./portfolio-copy-v14.js?v=15#./portfolio-copy-v15.js?v=15#g' app-v16.js
           sed -i 's#./app-v6.js?v=9#./app-v16.js?v=16#g' index.html
+          sed -i 's#./portfolio-v9.js?v=9#./portfolio-v16.js?v=16#g' index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
