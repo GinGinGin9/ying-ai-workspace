@@ -54,6 +54,8 @@
     if(close)close.innerHTML='执行深度 · 策略判断 · <em>AI 系统化</em>';
   }
 
-  /* V11: add the Strategy & Playbooks evidence layer after the AI system section. */
-  import('./strategy-v11.js?v=11').catch(err=>console.warn('Strategy library unavailable:',err));
+  /* Strategy loads dynamically; run the final copy refresh only after it exists. */
+  import('./strategy-v11.js?v=13')
+    .catch(err=>console.warn('Strategy library unavailable:',err))
+    .finally(()=>import('./copy-refresh-v13.js?v=13').catch(err=>console.warn('Copy refresh unavailable:',err)));
 })();
