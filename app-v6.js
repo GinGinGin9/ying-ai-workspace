@@ -2,7 +2,6 @@ const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Critical content is presentation content, not animation content: force it visible immediately.
 function forceCriticalVisible(){
   $$('#spatialGrid,.spatial-grid,.cap-card,.agency-list,.agency-list a').forEach(el=>{
     el.style.setProperty('opacity','1','important');
@@ -13,7 +12,6 @@ forceCriticalVisible();
 window.addEventListener('DOMContentLoaded',forceCriticalVisible,{once:true});
 window.addEventListener('load',forceCriticalVisible,{once:true});
 
-// FMR-5S case must only contain verified FMR-5S assets.
 const campaignCloud=$('#campaignCloud');
 if(campaignCloud){
   campaignCloud.querySelector('.m3')?.remove();
@@ -58,7 +56,7 @@ $$('.video-tile').forEach(el=>el.addEventListener('click',()=>{
 
 $('[data-modal="fmr"]')?.addEventListener('click',()=>openModal(`
   <div class="micro-label">FMR-5S · INTEGRATED CAMPAIGN</div>
-  <h2 style="font-family:Arial,'Microsoft YaHei',sans-serif;font-weight:700;font-size:clamp(44px,6vw,82px);line-height:1.08;margin:16px 0 30px">整合传播路径<br><span style="color:#eadfff">不止一次 Launch</span></h2>
+  <h2 style="font-family:Arial,sans-serif;font-weight:700;font-size:clamp(44px,6vw,82px);line-height:1.08;margin:16px 0 30px">FMR 5S Campaign Timeline<br><span style="color:#eadfff">Teaser Launch Follow Up</span></h2>
   <div class="case-links">
     <a href="https://www.linkedin.com/feed/update/urn:li:activity:7478409013731401729" target="_blank" rel="noreferrer"><span>Teaser / Engagement · Quiz</span><b>↗</b></a>
     <a href="https://www.linkedin.com/feed/update/urn:li:activity:7482383387341807616" target="_blank" rel="noreferrer"><span>Teaser · Video</span><b>↗</b></a>
@@ -70,7 +68,6 @@ $('[data-modal="fmr"]')?.addEventListener('click',()=>openModal(`
 
 $$('.video-tile img,.archive-card img,.media-card img').forEach(img=>img.loading='lazy');
 
-// Lightweight motion: transforms only. Never controls opacity/visibility of portfolio content.
 if(!reduce && 'IntersectionObserver' in window){
   const items=$$('.workspace-intro,.cap-card,.campaign-copy,.video-tile,.archive-card,.directed-head,.agency-list a,.build-transition,.about>*');
   items.forEach(el=>{
@@ -88,7 +85,6 @@ if(!reduce && 'IntersectionObserver' in window){
   items.forEach(el=>io.observe(el));
 }
 
-// Persistent mouse-follow layer. Kept outside Three.js so it remains visible over light/dark sections.
 if(!reduce && matchMedia('(pointer:fine)').matches){
   const aura=document.createElement('div');
   aura.className='cursor-aura';
@@ -149,24 +145,11 @@ if(!reduce && matchMedia('(pointer:fine)').matches){
   follow();
 }
 
-// Current official Three.js module build + addons. Cache-busted for Pages.
 import('./magic-three.js?v=7').catch(err=>console.warn('Three.js scene unavailable:',err));
 
-// Activate the Strategy & Playbooks layer and keep its headline compact enough for Chinese line-breaking.
 import('./strategy-v11.js?v=12').then(()=>{
   const section=$('#strategy');
   if(!section) return;
-
-  const title=$('.strategy-head h2',section);
-  if(title) title.innerHTML='不只展示结果，<br><em>也展示判断过程。</em>';
-
-  const copy=$('.strategy-head-copy',section);
-  if(copy){
-    copy.innerHTML=`
-      <p>这部分收纳策略复盘、宣发路径与方法框架。它们不只是结果展示，更用来说明我如何拆解问题、形成判断，并把经验沉淀为可复用的方法。</p>
-      <small>Beyond outcomes, this section shows how I think, decide and structure marketing work.</small>
-      <small class="strategy-sanitize">SELECTED & SANITIZED FOR INTERVIEW USE</small>`;
-  }
 
   if(!$('#strategy-v12-overrides')){
     const style=document.createElement('style');
@@ -176,7 +159,6 @@ import('./strategy-v11.js?v=12').then(()=>{
       .strategy-head h2{font-size:clamp(48px,4.4vw,64px);line-height:1.1;letter-spacing:-.038em;max-width:760px;text-wrap:balance}
       .strategy-head-copy p{font-size:15px;line-height:1.76}
       .strategy-head-copy small{margin-top:10px;max-width:500px}
-      .strategy-head-copy .strategy-sanitize{margin-top:5px;opacity:.72}
       .strategy-library{margin-top:38px;gap:12px}
       .strategy-card{min-height:392px;padding:20px;border-radius:21px}
       .doc-preview{min-height:188px;margin:17px 0 18px}
@@ -190,4 +172,6 @@ import('./strategy-v11.js?v=12').then(()=>{
     `;
     document.head.appendChild(style);
   }
-}).catch(err=>console.warn('Strategy & Playbooks unavailable:',err));
+
+  return import('./portfolio-copy-v14.js?v=14');
+}).catch(err=>console.warn('Portfolio copy unavailable:',err));
