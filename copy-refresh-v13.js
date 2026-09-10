@@ -4,19 +4,33 @@
   const setText=(s,t)=>{const el=$(s);if(el)el.textContent=t;};
   const setHTML=(s,h)=>{const el=$(s);if(el)el.innerHTML=h;};
 
-  document.title='Ying / 海外数字营销作品集';
+  document.documentElement.lang='en';
+  document.title='Ying / Global Digital Marketing Portfolio';
   const meta=$('meta[name="description"]');
-  if(meta) meta.content='Ying 的海外数字营销作品集，涵盖 B2C 与 B2B 社媒、内容、Campaign、Paid Media、视频与 AI 工作流。';
+  if(meta) meta.content='Global digital marketing portfolio spanning B2C and B2B content, social, campaigns, paid media, video and AI-supported workflows.';
 
-  setText('.brand span','YING / 海外营销作品集');
+  setText('.brand span','YING / MARKETING PORTFOLIO');
   setText('.brand small','GLOBAL DIGITAL MARKETING');
 
+  const navCopy={
+    '#workspace':['How I Work','PROCESS'],
+    '#create':['Selected Work','WORK'],
+    '#systems':['AI Workflow','AI'],
+    '#strategy':['Strategy','REVIEWS'],
+    '#optimize':['Performance','OPTIMIZE'],
+    '#about':['About','ABOUT']
+  };
+  $$('.topbar nav a[href^="#"]').forEach(a=>{
+    const d=navCopy[a.getAttribute('href')];
+    if(d)a.innerHTML=`<span>${d[0]}</span><small>${d[1]}</small>`;
+  });
+
   const world={
-    research:['研究','RESEARCH','先看市场、受众和竞品'],
-    strategy:['策略','STRATEGY','决定目标、渠道和内容重点'],
-    create:['创意','CREATE','把想法做成内容和 Campaign'],
-    build:['流程','WORKFLOW','用 AI 和流程减少重复工作'],
-    optimize:['优化','OPTIMIZE','看数据，再改下一轮']
+    research:['Research','RESEARCH','Market, audience and competitor research'],
+    strategy:['Strategy','STRATEGY','Objectives, audiences and channel choices'],
+    create:['Create','CREATE','Content, video and campaign assets'],
+    build:['Workflow','WORKFLOW','Templates, AI tools and repeatable processes'],
+    optimize:['Optimize','OPTIMIZE','Performance review and iteration']
   };
   $$('.world-label').forEach(el=>{
     const d=world[el.dataset.world];
@@ -29,103 +43,152 @@
     if(small)small.textContent=d[2];
   });
 
-  const systemNav=$('.topbar nav a[href="#systems"]');
-  if(systemNav)systemNav.innerHTML='<span>AI 工作流</span><small>AI</small>';
+  setText('.world-instruction span','Move around the workspace');
+  setText('.world-instruction small','MOVE · HOVER · EXPLORE');
+  setText('.scroll-hint span','Scroll to explore');
+  setText('.scroll-hint small','SCROLL DOWN');
 
-  setText('#entry .eyebrow','GLOBAL DIGITAL MARKETING · B2C × B2B · SOCIAL · PAID · AI');
-  setHTML('#entry h1','社媒、内容、投放、Campaign。<br><em>这些我都实际做过。</em>');
-  setText('#entry .lede.zh-copy','四年海外数字营销经验，做过 B2C 社媒，也做过生命科学 B2B 的内容、Paid Media、Campaign 和视频。现在 AI 也会用在研究、整理、起稿和一些重复工作里。');
-  setText('#entry .lede-en','Global digital marketing across B2C and B2B, with hands-on work in social, content, paid media, video and campaigns.');
+  setText('#entry .eyebrow','GLOBAL DIGITAL MARKETING · B2C & B2B · CONTENT · PAID · CAMPAIGNS');
+  setHTML('#entry h1','Global marketing,<br>from content to campaigns.<br><em>Built on hands-on execution.</em>');
+  setText('#entry .lede.zh-copy','Four years across global B2C and B2B marketing, spanning social, content, video, paid media and campaign planning. I started in execution and gradually took on more strategy, performance review and cross-functional work.');
+  setText('#entry .lede-en','Experience across consumer and life-science marketing, with work delivered across multiple channels and formats.');
   const steps=$$('#entry .positioning-steps > div');
   const stepCopy=[
-    ['内容与执行','CONTENT & EXECUTION','社媒、内容、视频和日常运营，我都实际做过。'],
-    ['Campaign 与投放','CAMPAIGN & PAID','会做 Campaign 规划，也会看受众、投放和复盘。'],
-    ['AI 工作流','AI WORKFLOW','研究、整理、初稿和重复流程里，AI 已经是日常工具。']
+    ['Hands-on','CONTENT & EXECUTION','Social, content, video and day-to-day channel execution.'],
+    ['Campaigns','CAMPAIGN & PAID','Campaign planning, audience targeting, paid media and performance review.'],
+    ['AI Workflow','AI IN PRACTICE','Research, drafting, localization and repeatable tasks where AI genuinely saves time.']
   ];
   steps.forEach((el,i)=>{
     const d=stepCopy[i];if(!d)return;
-    el.querySelector('strong')&&(el.querySelector('strong').textContent=d[0]);
-    el.querySelector('small')&&(el.querySelector('small').textContent=d[1]);
-    el.querySelector('p')&&(el.querySelector('p').textContent=d[2]);
+    const strong=el.querySelector('strong');
+    const small=el.querySelector('small');
+    const p=el.querySelector('p');
+    if(strong)strong.textContent=d[0];
+    if(small)small.textContent=d[1];
+    if(p)p.textContent=d[2];
   });
   const enter=$('#enterBtn');
-  if(enter)enter.innerHTML='<span>看看我的工作方式</span><small>HOW I WORK ↓</small>';
+  if(enter)enter.innerHTML='<span>Explore the work</span><small>SCROLL TO START ↓</small>';
 
   const workspace=$('#workspace');
   if(workspace){
-    setHTML('#workspace .section-kicker','01 / 工作方式 <small>HOW I WORK</small>');
+    setHTML('#workspace .section-kicker','01 / HOW I WORK <small>PROCESS</small>');
     setText('#workspace .workspace-intro .eyebrow','RESEARCH · STRATEGY · CREATE · WORKFLOW · OPTIMIZE');
-    setHTML('#workspace .workspace-intro h2','我的工作通常<br><em>会经过这五个环节。</em>');
-    setText('#workspace .section-note','不是固定模板。项目不同，重点也会变，但我通常会先看市场和受众，再定策略、做内容和投放，最后根据数据继续调整。');
+    setHTML('#workspace .workspace-intro h2','The work usually moves<br><em>through these five areas.</em>');
+    setText('#workspace .section-note','Not every project follows the same order, but these are the areas I keep coming back to: research the market, set the direction, produce the work, improve the workflow and adjust based on results.');
     const cardCopy={
-      research:'先看市场、受众、竞品和搜索。',
-      strategy:'定目标、受众、渠道和内容重点。',
-      create:'做内容、视频和 Campaign 素材。',
-      build:'把 AI、模板和流程用进日常工作。',
-      optimize:'看数据，再调内容、受众和投放。'
+      research:['Research','MARKET & AUDIENCE','Market, audience, competitor and search research.'],
+      strategy:['Strategy','PLANNING','Objectives, audience, channel mix and campaign direction.'],
+      create:['Create','CONTENT & CREATIVE','Content, video and campaign assets.'],
+      build:['Workflow','TOOLS & PROCESS','Templates, AI tools and repeatable processes.'],
+      optimize:['Optimize','PERFORMANCE','Performance review, testing and iteration.']
     };
     $$('#workspace .cap-card').forEach(card=>{
+      const d=cardCopy[card.dataset.cap];if(!d)return;
+      const h3=card.querySelector('.cap-copy h3');
       const p=card.querySelector('.cap-copy p');
-      if(p&&cardCopy[card.dataset.cap])p.textContent=cardCopy[card.dataset.cap];
+      if(h3)h3.innerHTML=`${d[0]} <small>${d[1]}</small>`;
+      if(p)p.textContent=d[2];
     });
+    const explore=$('#workspace .explore-create');
+    if(explore)explore.innerHTML='<span>View selected work</span><small>SELECTED WORK ↓</small>';
   }
 
-  setHTML('#create .section-kicker','02 / 代表项目 <small>SELECTED WORK</small>');
-  setHTML('#create .create-heading h2','这里放的，<br><em>都是我实际参与过的项目。</em>');
-  setText('#create .create-heading .zh-copy','有我自己做的视频和社媒内容，也有产品 Campaign 和 Agency 合作。不同项目里我负责的部分不完全一样，下面尽量都标清楚。');
-  setText('#create .create-heading .lede-en','Selected work across campaigns, social content, video production and agency collaboration.');
+  setHTML('#create .section-kicker','02 / SELECTED WORK <small>CAMPAIGNS · CONTENT · VIDEO</small>');
+  setText('#create .create-heading .eyebrow','CAMPAIGN · CONTENT · VIDEO · CREATIVE DIRECTION');
+  setHTML('#create .create-heading h2','Selected work,<br><em>across different parts of the job.</em>');
+  setText('#create .create-heading .zh-copy','A mix of projects I produced myself and work delivered with agencies. My role varies by project, so the ownership is kept clear throughout.');
+  setText('#create .create-heading .lede-en','Campaign planning, social content, video production and brand-side creative direction.');
 
-  setText('#create .campaign-copy .zh-copy','FMR-5S 上市时，我参与规划了预热、Launch 和后续产品教育的内容节奏。前期用 Quiz 和视频拉互动，Launch 集中讲核心产品信息，后面再补手册和延展内容。');
-  setText('#create .campaign-copy .lede-en','Launch content planned across teaser, launch and follow-up product education.');
+  const campaign=$('#create .campaign-copy');
+  if(campaign){
+    const label=campaign.querySelector('.micro-label');
+    if(label)label.innerHTML='INTEGRATED CAMPAIGN <small>PRODUCT LAUNCH</small>';
+    const zh=campaign.querySelector('.zh-copy');
+    const en=campaign.querySelector('.lede-en');
+    if(zh)zh.textContent='For the FMR-5S launch, I helped plan content across teaser, launch and follow-up education. Early content focused on engagement; launch content carried the main product story; follow-up pieces added product detail and kept the campaign moving.';
+    if(en)en.textContent='Content planned across teaser, launch and follow-up product education.';
+    const btn=campaign.querySelector('[data-modal="fmr"]');
+    if(btn)btn.innerHTML='View campaign <small>VIEW CASE ↗</small>';
+  }
 
   const stripHead=$('#create .strip-head');
   if(stripHead){
+    const label=stripHead.querySelector('.micro-label');
     const h3=stripHead.querySelector('h3');
     const p=stripHead.querySelector(':scope > p');
-    if(h3)h3.textContent='这些视频，我从创意一路做到成片。';
-    if(p)p.textContent='创意、策划、制作和剪辑都有参与，部分项目由我独立完成。';
+    if(label)label.innerHTML='HANDS-ON PRODUCTION <small>VIDEO</small>';
+    if(h3)h3.textContent='Video work I took from idea to final cut.';
+    if(p)p.textContent='Concept, planning, production and editing across selected in-house projects.';
   }
+
+  const videoCopy=[
+    ['Product Operation Video','Concept · Production · Editing'],
+    ['World Environment Day','Creative Concept · Content · Production'],
+    ['Women & Girls in Science','Concept · Production · Editing'],
+    ['PANDA Mini Valentine Campaign','Concept · Video · Social']
+  ];
+  $$('#create .video-tile').forEach((tile,i)=>{
+    const d=videoCopy[i];if(!d)return;
+    const h4=tile.querySelector('.tile-meta h4');
+    const p=tile.querySelector('.tile-meta p');
+    const play=tile.querySelector('.video-cover span');
+    if(h4)h4.textContent=d[0];
+    if(p)p.textContent=d[1];
+    if(play)play.textContent='PLAY ↗';
+  });
 
   const archive=$('#create .archive-copy');
   if(archive){
+    const label=archive.querySelector('.micro-label');
     const h3=archive.querySelector('h3');
     const zh=archive.querySelector('.zh-copy');
     const en=archive.querySelector('.lede-en');
-    if(h3)h3.textContent='一些社媒和产品视觉。';
-    if(zh)zh.textContent='包括节日内容、产品传播和互动型素材。不同主题会换表达，但信息要清楚，也要看得出是同一个品牌。';
-    if(en)en.textContent='Selected social and product visuals across seasonal, product and interactive content.';
+    if(label)label.innerHTML='SELECTED VISUAL WORK <small>SOCIAL & PRODUCT</small>';
+    if(h3)h3.textContent='Selected social and product visuals.';
+    if(zh)zh.textContent='Seasonal campaigns, product communication and interactive social assets across different formats and content needs.';
+    if(en)en.textContent='A selection of visual work across social and product marketing.';
   }
 
   const directed=$('#create .directed-head');
   if(directed){
+    const label=directed.querySelector('.micro-label');
     const h3=directed.querySelector('h3');
     const zh=directed.querySelector('.zh-copy');
     const en=directed.querySelector('.lede-en');
-    if(h3)h3.textContent='和 Agency 合作时，我主要负责品牌这一侧。';
-    if(zh)zh.textContent='我负责 Creative Brief、核心信息、创意方向、沟通和 Final Review。制作由 Agency 完成，但要确保最后出来的内容没有偏离品牌和产品信息。';
-    if(en)en.textContent='Brand-side brief, messaging, creative direction, coordination and final review.';
+    if(label)label.innerHTML='AGENCY COLLABORATION <small>BRAND-SIDE ROLE</small>';
+    if(h3)h3.textContent='Brand-side direction for agency-produced work.';
+    if(zh)zh.textContent='I handled the creative brief, core messaging, creative direction, coordination and final review, making sure the finished work stayed accurate to the brand and product story.';
+    if(en)en.textContent='Brief, messaging, creative direction, coordination and final review.';
   }
+  const agencyTitles=['Extraction Instrument Series','Plate Reagent Commercial','Quantification Instrument Video','Vazyme Factory Story'];
+  $$('#create .agency-list a').forEach((a,i)=>{
+    const strong=a.querySelector('strong');
+    if(strong&&agencyTitles[i])strong.textContent=agencyTitles[i];
+  });
 
-  setHTML('#systems .section-kicker','03 / AI 工作流 <small>AI IN MY WORKFLOW</small>');
-  setText('#systems .systems-head .eyebrow','RESEARCH · CONTENT · AUTOMATION · KNOWLEDGE');
-  setHTML('#systems .systems-head h2','AI 对我来说，<br><em>已经是日常工具。</em>');
-  setText('#systems .systems-head .zh-copy','我会把 AI 用在市场资料整理、竞品研究、文案初稿、本地化、内容延展和一些重复流程里。能省时间的地方就用，但最后的内容和信息还是要自己检查。');
-  setText('#systems .systems-head .lede-en','I use AI in day-to-day marketing work: research, drafting, localization, content extension and repeatable tasks.');
-  const systemLabels={research:['研究与整理','RESEARCH'],content:['内容制作','CONTENT'],workflow:['流程与知识','WORKFLOW']};
+  setHTML('#systems .section-kicker','03 / AI WORKFLOW <small>AI IN PRACTICE</small>');
+  setText('#systems .systems-head .eyebrow','RESEARCH · DRAFTING · LOCALIZATION · AUTOMATION');
+  setHTML('#systems .systems-head h2','Where AI actually<br><em>fits into my work.</em>');
+  setText('#systems .systems-head .zh-copy','I use AI mainly to speed up research, first drafts, localization, content variants and repetitive tasks. It helps me get to a workable first version faster; final messaging, accuracy and brand fit still need review.');
+  setText('#systems .systems-head .lede-en','Practical use of AI across research, content and repeatable marketing tasks.');
+  const systemLabels={research:['Research','RESEARCH'],content:['Content','CONTENT'],workflow:['Workflow','WORKFLOW']};
   $$('#systems .system-node').forEach(node=>{
     const d=systemLabels[node.dataset.system];if(!d)return;
-    node.querySelector('strong')&&(node.querySelector('strong').textContent=d[0]);
-    node.querySelector('small')&&(node.querySelector('small').textContent=d[1]);
+    const strong=node.querySelector('strong');
+    const small=node.querySelector('small');
+    if(strong)strong.textContent=d[0];
+    if(small)small.textContent=d[1];
   });
   const core=$('#systems .system-core');
-  if(core)core.innerHTML='<span>AI + WORKFLOW</span><strong>日常营销</strong><small>HOW I USE IT</small>';
+  if(core)core.innerHTML='<span>AI IN PRACTICE</span><strong>Daily Work</strong><small>RESEARCH · CONTENT · OPS</small>';
   const principle=$('#systems .systems-principle p');
-  if(principle)principle.innerHTML='<strong>能省时间的地方我会用 AI。</strong> 但信息是不是对、语气像不像人、最后能不能用，还是要自己过一遍。';
+  if(principle)principle.innerHTML='<strong>I use AI when it improves speed or consistency.</strong> If it adds more checking than value, I leave it out.';
 
   const systemCopy={
-    research:['01 / RESEARCH','资料多的时候，先帮我整理。','市场资料、竞品页面、受众信息会先用 AI 做归纳和对比，我再回到原始信息里确认重点。',['Market Scan','Competitor Review','Audience','Search','Brief']],
-    content:['02 / CONTENT','先起一版，再自己改。','文案初稿、本地化、Campaign 延展和视频前期都会用到 AI。它适合加快第一版，但最终语气和专业信息要自己收。',['Campaign Copy','Localization','Visual Brief','Video','Content Reuse']],
-    workflow:['03 / WORKFLOW','重复做的事情，就尽量做成流程。','常用 Prompt、资料、模板和步骤会留成可重复使用的流程，下一次不用重新从零开始。',['Prompt','Template','Knowledge Base','Automation','Workflow']]
+    research:['01 / RESEARCH','Sort the inputs before I start writing.','I use AI to compare competitor pages, summarize long source material and organize audience or market notes. I still go back to the source before using anything important.',['Market Scan','Competitor Review','Audience','Search','Brief']],
+    content:['02 / CONTENT','Get to a strong first draft faster.','Useful for first-pass copy, localization, campaign extensions and video pre-production. The final version is still edited for tone, context and accuracy.',['Campaign Copy','Localization','Visual Brief','Video','Content Variants']],
+    workflow:['03 / WORKFLOW','Reduce repeat work.','Recurring prompts, references, templates and task steps are kept in reusable workflows so the next project starts with a better base.',['Prompts','Templates','Knowledge Base','Automation','Workflow']]
   };
   function rewriteSystemDetail(key){
     const d=systemCopy[key];const detail=$('#systems .system-detail');if(!d||!detail)return;
@@ -134,29 +197,37 @@
   rewriteSystemDetail('research');
   $$('#systems .system-node').forEach(node=>['mouseenter','focus','click'].forEach(evt=>node.addEventListener(evt,()=>queueMicrotask(()=>rewriteSystemDetail(node.dataset.system)))));
 
-  setText('#optimize .optimize-head .eyebrow','DATA · TESTING · RETARGETING · LEAD GENERATION');
-  setHTML('#optimize .optimize-head h2','看完数据，<br><em>我会直接改下一轮。</em>');
-  setText('#optimize .optimize-head .zh-copy','我主要看数据能不能回答几个实际问题：什么内容有效、哪些人真的有兴趣、预算要不要挪、下一轮该继续还是换打法。');
-  setText('#optimize .optimize-head .lede-en','I use performance data to decide what to keep, what to change and where to spend next.');
+  setHTML('#optimize .section-kicker','05 / PERFORMANCE <small>PAID MEDIA & OPTIMIZATION</small>');
+  setText('#optimize .optimize-head .eyebrow','PAID MEDIA · TESTING · RETARGETING · LEAD GENERATION');
+  setHTML('#optimize .optimize-head h2','Use the data.<br><em>Then change the plan.</em>');
+  setText('#optimize .optimize-head .zh-copy','I use performance data to answer practical questions: which audience is responding, which content is worth scaling, where budget should move and whether the next campaign needs a different sequence.');
+  setText('#optimize .optimize-head .lede-en','Reporting is useful when it changes what happens next.');
   const story=$('#optimize .optimize-story');
   if(story){
     const h3=story.querySelector('h3');
     const p=story.querySelector(':scope > p');
-    if(h3)h3.innerHTML='一开始直接要 Leads，<br>效果不理想。';
-    if(p)p.textContent='早期投放比较快进入 Lead Generation，但效果一般。后面北美 Campaign 改成 Awareness → Engagement → Retargeting → Lead Generation，先让目标受众看到、互动，再去承接线索，表现更好。';
+    if(h3)h3.innerHTML='We asked for leads<br>too early.';
+    if(p)p.textContent='Earlier paid campaigns moved into lead generation quickly and underperformed. In the North America campaign, we changed the sequence to Awareness → Engagement → Retargeting → Lead Generation. The longer warm-up worked better.';
     const before=story.querySelector('.optimize-shift-line > div:first-child strong');
     const after=story.querySelector('.optimize-shift-line > div:last-child strong');
-    if(before)before.textContent='较早进入 Lead Generation';
-    if(after)after.textContent='先做 Awareness / Engagement，再接 Leads';
+    if(before)before.textContent='Move into Lead Generation early';
+    if(after)after.textContent='Build awareness and engagement first';
   }
+  const center=$('#optimize .optimize-center');
+  if(center)center.innerHTML='<div><strong>Iterate</strong><small>NEXT ROUND</small></div>';
+  const optimizeNodes={awareness:'Awareness',engagement:'Engagement',retarget:'Retargeting',lead:'Lead Generation'};
+  $$('#optimize .optimize-stage').forEach(node=>{
+    const strong=node.querySelector('strong');
+    if(strong&&optimizeNodes[node.dataset.stage])strong.textContent=optimizeNodes[node.dataset.stage];
+  });
   const optimizePrinciple=$('#optimize .optimize-principle p');
-  if(optimizePrinciple)optimizePrinciple.innerHTML='<strong>我看数据主要是为了改下一轮。</strong> 预算、受众、内容和投放节奏，哪里不对就改哪里。';
+  if(optimizePrinciple)optimizePrinciple.innerHTML='<strong>The point of reporting is to decide what changes next.</strong> Audience, budget, creative or sequence — whatever the data points to.';
 
   const optimizeCopy={
-    awareness:['01 / AWARENESS','先让目标受众知道你是谁。','B2B 的转化通常没那么快，所以第一步先把品牌和内容送到对的人面前。'],
-    engagement:['02 / ENGAGEMENT','再看谁真的有兴趣。','点击、视频观看和内容互动会比单纯曝光更有用，可以帮我判断后面该重点跟哪一批人。'],
-    retarget:['03 / RETARGETING','对互动过的人继续讲。','已经看过或点过内容的人，会再看到更具体的信息，而不是所有人一直看同一条广告。'],
-    lead:['04 / LEAD GENERATION','最后再去接 Leads。','前面已经有认知和互动，再用更明确的 CTA 和表单承接需求，线索质量通常会更好。']
+    awareness:['01 / AWARENESS','Start by reaching the right accounts.','Build familiarity with useful brand and product content before asking for a form fill.'],
+    engagement:['02 / ENGAGEMENT','Use behavior to narrow the audience.','Clicks, video views and content engagement help identify the people worth continuing with.'],
+    retarget:['03 / RETARGETING','Follow up with a more specific message.','People who already engaged see deeper product or campaign content instead of the same top-of-funnel ad again.'],
+    lead:['04 / LEAD GENERATION','Ask for the lead when intent is clearer.','Once there is some familiarity and engagement, a stronger CTA is more likely to produce useful leads.']
   };
   function rewriteOptimizeDetail(key){
     const d=optimizeCopy[key];const detail=$('#optimize .optimize-detail');if(!d||!detail)return;
@@ -165,46 +236,117 @@
   rewriteOptimizeDetail('awareness');
   $$('#optimize .optimize-stage').forEach(node=>['mouseenter','focus','click'].forEach(evt=>node.addEventListener(evt,()=>queueMicrotask(()=>rewriteOptimizeDetail(node.dataset.stage)))));
 
-  const strategy=$('#strategy');
-  if(strategy){
-    const title=$('.strategy-head h2',strategy);if(title)title.innerHTML='不只放成品，<br><em>也放一些项目里的做法。</em>';
-    const copy=$('.strategy-head-copy',strategy);if(copy)copy.innerHTML='<p>这里放的是几份脱敏后的项目复盘和工作文档。重点不是展示一套“方法论”，而是让人看得出我在具体项目里怎么安排 Campaign、怎么看投放、怎么组织产品内容。</p><small>Selected project reviews and working documents, sanitized for interview use.</small>';
-    const note=$('.strategy-note p',strategy);if(note)note.innerHTML='<strong>这些文档和前面的作品是同一批工作。</strong> 前面看最后做出来什么，这里看项目当时是怎么安排的。';
-    const cards=$$('.strategy-card',strategy);
-    const cardCopy=[
-      ['北美 LinkedIn ABM 第二期复盘','除了 CTR 和 Leads，我还会看目标公司到底有没有被触达、哪些账户已经有互动，以及哪些更值得销售继续跟进。','查看复盘摘要'],
-      ['重点产品宣发路径','把一个产品 Campaign 分成预热、Launch 和后续内容，不同阶段用不同素材，不是把一堆帖子排进日历就结束。','查看项目安排'],
-      ['产品宣传框架','把产品内容拆成卖点、技术解释、使用场景、教育内容和客户案例，避免每次都只重复同一条卖点。','查看内容框架']
-    ];
-    cards.forEach((card,i)=>{const d=cardCopy[i];if(!d)return;card.querySelector('h3')&&(card.querySelector('h3').textContent=d[0]);card.querySelector('p')&&(card.querySelector('p').textContent=d[1]);card.querySelector('.strategy-card-footer span')&&(card.querySelector('.strategy-card-footer span').textContent=d[2]);});
-
-    const strategyModalCopy={
-      abm:{title:'北美 LinkedIn ABM 第二期复盘',intro:'这版只保留经过脱敏的项目结构和结果，不展示完整目标公司名单。',blocks:[['当时怎么看','不只看 CTR 和 Leads。','这类投放首先要确认广告有没有真正触达到目标公司，以及哪些账户已经开始互动。'],['第二期看到什么','49 家核心目标企业中，33 家已经触达，9 家产生互动。','在这个基础上继续看员工触达和互动情况，再区分哪些账户值得优先跟进。'],['后面怎么用','把投放结果和销售优先级放到一起看。','高触达、高互动的账户优先给销售；已经触达但互动弱的继续培育；表现弱的再调整受众或内容。'],['后来怎么改','不再一开始就把所有人推向表单。','后续北美 Campaign 改成 Awareness、Engagement、Retargeting，再进入 Lead Generation。']]},
-      campaign:{title:'重点产品宣发路径',intro:'这是当时用来安排产品 Campaign 节奏的工作框架。',blocks:[['Campaign 怎么分','预热、Launch、后续内容三个阶段。','预热先做互动和话题，Launch 集中讲产品核心信息，后面再补更专业的教育内容和长尾素材。'],['内容怎么配','不同内容有不同作用。','互动帖负责收集观点，视频和 KV 负责抓注意力，Brochure 承载更完整的产品信息，后续内容继续补场景和证明。'],['为什么这么排','不是为了凑发布数量。','我更在意每条内容在整个 Campaign 里承担什么任务，以及前后能不能接得起来。'],['频次','当时按一个月左右的 Campaign 周期安排。','大约每月 4–5 条内容，重点放在节奏和内容分工，不追求单纯堆量。']]},
-      product:{title:'产品宣传框架',intro:'这份 XMind 主要用来避免产品宣传长期只剩“重复卖点”。',blocks:[['能讲什么','产品内容不只有功能和卖点。','还可以讲技术原理、使用场景、易用性、教程、奖项认证、客户案例和文献等。'],['专业信息怎么放','有数据的地方就用数据说话。','技术和性能内容尽量带实验结果；教学类内容补教程和使用技巧；客户案例和文献用于增加可信度。'],['形式怎么选','信息复杂度不同，形式也不同。','图文、视频、PDF、文章、投票、轮播和 Banner 都可以用，关键看这一条内容到底要讲多少信息。'],['平时怎么排','日常产品内容不需要发得特别密。','当时规划里会控制频次，避免同一产品连续堆内容，把不同角度分开讲。']]}
-    };
-    $$('.strategy-card',strategy).forEach(card=>card.addEventListener('click',()=>setTimeout(()=>{
-      const key=card.dataset.playbook,d=strategyModalCopy[key],modal=$('.strategy-modal');if(!d||!modal)return;
-      const left=modal.querySelector('.strategy-view-left');const right=modal.querySelector('.strategy-view-right');
-      if(left){left.querySelector('span')&&(left.querySelector('span').textContent='PROJECT REVIEW · SANITIZED');left.querySelector('h3')&&(left.querySelector('h3').textContent=d.title);left.querySelector('p')&&(left.querySelector('p').textContent=d.intro);}
-      if(right){right.querySelector(':scope > small')&&(right.querySelector(':scope > small').textContent='PROJECT NOTES');right.querySelector('h2')&&(right.querySelector('h2').textContent=d.title);const blocks=[...right.querySelectorAll('.strategy-block')];d.blocks.forEach((b,i)=>{const block=blocks[i];if(!block)return;block.querySelector('label')&&(block.querySelector('label').textContent=b[0]);block.querySelector('strong')&&(block.querySelector('strong').textContent=b[1]);block.querySelector('p')&&(block.querySelector('p').textContent=b[2]);});const cap=blocks[d.blocks.length];if(cap?.querySelector('label'))cap.querySelector('label').textContent='相关工作';}
-    },0)));
-  }
-
   const about=$('#about');
   if(about){
-    setText('#about .eyebrow','SOCIAL · CONTENT · PAID MEDIA · CAMPAIGN · AI');
-    setHTML('#about .about-intro h2','我是从社媒运营开始的，<br><em>后来做得越来越宽。</em>');
-    setText('#about .about-intro .zh-copy','最开始在 SHEIN / MOTF 做全球社媒，后来到 Vazyme 做 B2B 海外数字营销，工作慢慢扩到内容、Paid Media、Campaign 和视频。现在我也会自己搭一些 AI 工作流，主要是为了把日常工作做得更快一点。');
-    setText('#about .about-intro .lede-en','I started in global social media, moved into B2B digital marketing, and gradually expanded into paid media, campaigns, video and AI-assisted workflows.');
+    setHTML('#about .section-kicker','06 / ABOUT <small>EXPERIENCE</small>');
+    setText('#about .about-intro .eyebrow','GLOBAL DIGITAL MARKETING · B2C & B2B');
+    setHTML('#about .about-intro h2','I started in social.<br><em>The role kept getting broader.</em>');
+    setText('#about .about-intro .zh-copy','At SHEIN / MOTF, I worked in global B2C social and influencer marketing. At Vazyme, I moved into B2B and added content strategy, paid media, campaign planning, video and performance review. Today I work across both execution and strategy, with AI built into parts of the workflow where it is genuinely useful.');
+    setText('#about .about-intro .lede-en','Four years across global B2C and B2B marketing, with hands-on experience and growing strategic ownership.');
     const points=$$('#about .about-point');
-    const pcopy=[
-      ['我做过很多一线执行。','社媒发什么、视频怎么拍、素材怎么改、广告怎么跑，这些不是只在方案里写过。'],
-      ['后来开始负责更多规划。','除了把事情做出来，也会参与 Campaign 节奏、内容重点、受众和 Paid Media 的调整。'],
-      ['现在也会自己折腾 AI。','主要用在研究、整理、起稿和重复流程里。好用就留下，不好用就不用。']
+    const pointCopy=[
+      ['HANDS-ON','I still like being close to the work.','Social posts, copy, video, paid media and campaign assets give me a practical sense of what can actually be produced and shipped.'],
+      ['BROADER SCOPE','The work expanded beyond content.','Campaign planning, audience strategy, paid media and performance review gradually became a larger part of my role.'],
+      ['AI IN PRACTICE','AI is part of the process, not the pitch.','I use it for research, drafting, localization and repeatable tasks when it improves speed or consistency.']
     ];
-    points.forEach((point,i)=>{const d=pcopy[i];if(!d)return;point.querySelector('h3')&&(point.querySelector('h3').textContent=d[0]);point.querySelector('p')&&(point.querySelector('p').textContent=d[1]);});
-    const now=$('#about .experience-row:last-child');if(now){now.querySelector('strong')&&(now.querySelector('strong').textContent='AI-assisted Marketing');now.querySelector('p')&&(now.querySelector('p').textContent='把 AI 用进研究、内容和日常营销流程');now.querySelector('small')&&(now.querySelector('small').textContent='CURRENT FOCUS');}
-    const close=$('#about .about-close-copy strong');if(close)close.innerHTML='内容。Campaign。投放。<br><em>还有一点 AI。</em>';
+    points.forEach((point,i)=>{
+      const d=pointCopy[i];if(!d)return;
+      const small=point.querySelector('small');const h3=point.querySelector('h3');const p=point.querySelector('p');
+      if(small)small.textContent=d[0];if(h3)h3.textContent=d[1];if(p)p.textContent=d[2];
+    });
+    const exp=$$('#about .experience-row');
+    const expCopy=[
+      ['SHEIN / MOTF','Global Social · Influencer · PR · B2C Growth','GLOBAL B2C'],
+      ['Vazyme Biotech','Content · Paid Media · Campaigns · Video · B2B Brand','GLOBAL B2B'],
+      ['Current Focus','Execution · Strategy · AI-supported workflow','WHAT I BUILD ON NEXT']
+    ];
+    exp.forEach((row,i)=>{
+      const d=expCopy[i];if(!d)return;
+      const strong=row.querySelector('strong');const p=row.querySelector('p');const small=row.querySelector('small');
+      if(strong)strong.textContent=d[0];if(p)p.textContent=d[1];if(small)small.textContent=d[2];
+    });
+    const closeCopy=$('#about .about-close-copy');
+    if(closeCopy)closeCopy.innerHTML='<span>CURRENT FOCUS</span><strong>Hands-on execution.<br><em>Broader strategic ownership.</em></strong>';
+    const back=$('#about .about-close .primary-btn');
+    if(back)back.innerHTML='<span>Back to top</span><small>BACK TO START ↑</small>';
   }
+
+  function refreshStrategy(){
+    const strategy=$('#strategy');
+    if(!strategy)return false;
+    setHTML('#strategy .section-kicker','04 / STRATEGY & REVIEWS <small>PLANNING · PERFORMANCE · PRODUCT MARKETING</small>');
+    setText('#strategy .strategy-head .eyebrow','CAMPAIGN PLANNING · PAID MEDIA · PRODUCT MARKETING');
+    const title=$('.strategy-head h2',strategy);if(title)title.innerHTML='Selected strategy<br><em>and review work.</em>';
+    const copy=$('.strategy-head-copy',strategy);if(copy)copy.innerHTML='<p>Sanitized working documents from real projects: a LinkedIn ABM review, a campaign plan and a product-marketing framework. They are included to show the planning behind the final assets.</p><small>SELECTED & SANITIZED FOR INTERVIEW USE</small>';
+
+    const cards=$$('.strategy-card',strategy);
+    const cardCopy=[
+      ['NORTH AMERICA · LINKEDIN ABM','From Account Reach to Sales Priority','North America LinkedIn ABM Review','Reviewed account reach, engagement and sales-ready signals to decide where follow-up should focus.','View review'],
+      ['PRODUCT CAMPAIGN PLAN','Teaser → Launch → Follow-up','Product Campaign Plan','Mapped content roles across teaser, launch and follow-up instead of treating the calendar as a list of posts.','View plan'],
+      ['PRODUCT MARKETING','More than a feature list','Product Marketing Content Plan','Built content angles around product benefits, technical evidence, education and customer proof.','View framework']
+    ];
+    cards.forEach((card,i)=>{
+      const d=cardCopy[i];if(!d)return;
+      const mark=card.querySelector('.doc-mark');const preview=card.querySelector('.doc-sheet strong');const h3=card.querySelector('h3');const p=card.querySelector('p');const footer=card.querySelector('.strategy-card-footer span');
+      if(mark)mark.textContent=d[0];if(preview)preview.textContent=d[1];if(h3)h3.textContent=d[2];if(p)p.textContent=d[3];if(footer)footer.textContent=d[4];
+    });
+    const note=$('.strategy-note p',strategy);if(note)note.innerHTML='<strong>The final creative shows what shipped.</strong> These documents show the planning behind it.';
+    const nav=$('.topbar nav a[href="#strategy"]');if(nav)nav.innerHTML='<span>Strategy</span><small>REVIEWS</small>';
+
+    const playbookCopy={
+      abm:{
+        type:'ABM & PERFORMANCE · SANITIZED REVIEW',title:'From media performance to account priority.',intro:'Sanitized review of a North America LinkedIn ABM campaign. Company names and internal details are removed; the structure and selected results are retained.',
+        blocks:[
+          ['CONTEXT','CTR and lead volume were not enough.','For a named-account campaign, we also needed to know whether ads were reaching target companies and which accounts were moving from exposure to engagement.'],
+          ['SIGNAL','Account penetration became the more useful view.','The review combined account reach, engagement and decision-maker coverage. Of 49 priority accounts, 33 were reached and 9 engaged, then grouped for follow-up.'],
+          ['ACTION','Turn the review into a sales list.','Accounts were grouped using employee reach and engagement rates to support sales follow-up, continued nurture or content changes.'],
+          ['TAKEAWAY','B2B conversion needed more time.','The later approach gave more room for awareness and engagement before lead generation, which performed better than pushing for leads too early.']
+        ],chips:['LinkedIn ABM','Account Penetration','Sales Priority','Retargeting','Lead Generation']
+      },
+      campaign:{
+        type:'CAMPAIGN PLANNING · SANITIZED DOCUMENT',title:'Plan the campaign around stages, not post count.',intro:'A product campaign framework built around teaser, launch and follow-up.',
+        blocks:[
+          ['STRUCTURE','Teaser, launch, follow-up.','The teaser stage created an entry point and early interaction; launch concentrated the main product message; follow-up added detail, education and proof.'],
+          ['CONTENT MIX','Each format had a job.','Polls and interactive posts helped generate engagement, launch visuals carried the main message, brochures handled technical detail, and later content extended the campaign.'],
+          ['MATERIALS','Choose the asset based on the message.','Short social content worked for attention and interaction; longer formats were used when the audience needed more technical information or product context.'],
+          ['CADENCE','Keep the campaign moving without overposting.','The plan used a small number of well-timed posts across the month, with each piece supporting a specific stage rather than adding volume for its own sake.']
+        ],chips:['Teaser','Launch','Follow-up','Content Mix','Campaign Cadence']
+      },
+      product:{
+        type:'PRODUCT MARKETING · SANITIZED FRAMEWORK',title:'Build a content plan beyond product features.',intro:'A product marketing map used to broaden the range of topics we could cover throughout the year.',
+        blocks:[
+          ['CONTENT ANGLES','A product can support more than one story.','The plan covered launches, product benefits, technical principles, ease of use, awards, educational content and customer examples.'],
+          ['EVIDENCE','Technical claims need support.','Performance claims were paired with data where available, while educational content used tutorials, guides and troubleshooting to make the product easier to understand.'],
+          ['FORMATS','Match the format to the information.','Posts, video, downloadable PDFs, articles, polls, carousels and banners were used for different levels of detail instead of forcing every message into the same template.'],
+          ['CADENCE','Plan product content across the year.','The framework also mapped frequency and timing so product communication stayed consistent without crowding the channel.']
+        ],chips:['Messaging','Technical Evidence','Education','Customer Proof','Content Formats']
+      }
+    };
+
+    $$('.strategy-card',strategy).forEach(card=>{
+      card.addEventListener('click',()=>queueMicrotask(()=>{
+        const d=playbookCopy[card.dataset.playbook];
+        const modal=$('.strategy-modal');const content=$('.strategy-modal-content');if(!d||!modal||!content)return;
+        content.innerHTML=`<div class="strategy-view"><aside class="strategy-view-left"><span>${d.type}</span><h3>${d.title}</h3><p>${d.intro}</p><div class="private-badge">SANITIZED · INTERVIEW VIEW</div></aside><div class="strategy-view-right"><small>PROJECT NOTES</small><h2>${d.title}</h2>${d.blocks.map(b=>`<div class="strategy-block"><label>${b[0]}</label><strong>${b[1]}</strong><p>${b[2]}</p></div>`).join('')}<div class="strategy-block"><label>TOOLS & TOPICS</label><div class="chips">${d.chips.map(c=>`<span>${c}</span>`).join('')}</div></div></div></div>`;
+      }));
+    });
+    return true;
+  }
+
+  if(!refreshStrategy()){
+    const observer=new MutationObserver(()=>{
+      if($('#strategy')){
+        setTimeout(refreshStrategy,0);
+        observer.disconnect();
+      }
+    });
+    observer.observe(document.body,{childList:true,subtree:true});
+  }else{
+    setTimeout(refreshStrategy,0);
+  }
+
+  $('[data-modal="fmr"]')?.addEventListener('click',()=>queueMicrotask(()=>{
+    const content=$('#modalContent');if(!content)return;
+    content.innerHTML=`<div class="micro-label">FMR-5S · INTEGRATED CAMPAIGN</div><h2 style="font-family:Arial,sans-serif;font-weight:700;font-size:clamp(44px,6vw,82px);line-height:1.08;margin:16px 0 30px">FMR-5S Campaign Timeline<br><span style="color:#eadfff">Teaser → Launch → Follow-up</span></h2><div class="case-links"><a href="https://www.linkedin.com/feed/update/urn:li:activity:7478409013731401729" target="_blank" rel="noreferrer"><span>Teaser / Engagement · Quiz</span><b>↗</b></a><a href="https://www.linkedin.com/feed/update/urn:li:activity:7482383387341807616" target="_blank" rel="noreferrer"><span>Teaser · Video</span><b>↗</b></a><a href="https://www.linkedin.com/feed/update/urn:li:activity:7483822983317307392" target="_blank" rel="noreferrer"><span>Launch · Key Visual</span><b>↗</b></a><a href="https://www.linkedin.com/feed/update/urn:li:activity:7485992349450305536" target="_blank" rel="noreferrer"><span>Product Education · Brochure</span><b>↗</b></a><a href="https://www.linkedin.com/feed/update/urn:li:activity:7493586161316126720" target="_blank" rel="noreferrer"><span>Creative Extension · Video</span><b>↗</b></a><a href="https://www.linkedin.com/feed/update/urn:li:activity:7500100034567254016" target="_blank" rel="noreferrer"><span>Launch · Hero Video</span><b>↗</b></a></div>`;
+  }));
 })();
