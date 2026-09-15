@@ -75,3 +75,87 @@
   .about-close{grid-template-columns:1fr;align-items:start}
   .topbar nav a:after{display:none}
 }
+
+/* V11 — responsive topbar fix */
+.topbar{
+  display:grid!important;
+  grid-template-columns:minmax(220px,340px) minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:24px!important;
+  padding:18px 28px!important;
+}
+.topbar .brand{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  overflow:hidden;
+}
+.topbar .brand span{
+  display:block;
+  font-size:13px;
+  line-height:1.2;
+  letter-spacing:.12em;
+  font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.topbar .brand small{
+  display:block;
+  font-size:9px;
+  line-height:1.2;
+  letter-spacing:.16em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  opacity:.72;
+}
+.topbar nav{
+  min-width:0;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:24px;
+  flex-wrap:nowrap;
+}
+.topbar nav a{
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+  white-space:nowrap;
+}
+.topbar nav a span{font-size:10px;line-height:1.2}
+.topbar nav a small{font-size:8px;line-height:1.2}
+
+@media(max-width:1180px){
+  .topbar{
+    grid-template-columns:minmax(180px,260px) minmax(0,1fr)!important;
+    gap:18px!important;
+    padding:16px 22px!important;
+  }
+  .topbar .brand small{display:none!important}
+  .topbar nav{gap:18px!important}
+  .topbar nav a small{display:none!important}
+}
+
+@media(max-width:760px){
+  .topbar{
+    grid-template-columns:1fr!important;
+    gap:11px!important;
+    padding:13px 16px 12px!important;
+  }
+  .topbar .brand{max-width:100%}
+  .topbar .brand span{font-size:11px}
+  .topbar nav{
+    justify-content:flex-start!important;
+    gap:18px!important;
+    overflow-x:auto;
+    padding:0 0 3px;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  .topbar nav::-webkit-scrollbar{display:none}
+  .topbar nav a{flex:0 0 auto}
+  .topbar nav a span{font-size:9px}
+}
