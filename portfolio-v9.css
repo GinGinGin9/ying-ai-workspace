@@ -164,3 +164,8 @@
    The labels no longer have an active projection/positioning controller and
    otherwise stack at the viewport origin over the brand on the entry screen. */
 .world-ui{display:none!important}
+
+/* V13 — broken archive source fallback.
+   The fourth Google Drive asset no longer resolves publicly, so keep the
+   portfolio clean instead of rendering a broken image/alt-text block. */
+.archive-card.a4{display:none!important}
