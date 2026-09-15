@@ -159,3 +159,8 @@
   .topbar nav a{flex:0 0 auto}
   .topbar nav a span{font-size:9px}
 }
+
+/* V12 — retired broken floating world labels.
+   The labels no longer have an active projection/positioning controller and
+   otherwise stack at the viewport origin over the brand on the entry screen. */
+.world-ui{display:none!important}
