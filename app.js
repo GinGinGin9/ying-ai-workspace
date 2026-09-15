@@ -2,6 +2,28 @@ const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Keep the topbar metrics stable before v5.css is loaded later.
+// v5.css switches the global UI font to Arial/Microsoft YaHei; locking the
+// topbar to that final font immediately prevents the late layout jump that
+// could make the brand/navigation overlap after the first paint.
+if(!document.querySelector('#topbar-stability-style')){
+  const stable=document.createElement('style');
+  stable.id='topbar-stability-style';
+  stable.textContent=`
+    .topbar,
+    .topbar .brand,
+    .topbar .brand span,
+    .topbar .brand small,
+    .topbar nav,
+    .topbar nav a,
+    .topbar nav a span,
+    .topbar nav a small{
+      font-family:Arial,"Microsoft YaHei",sans-serif!important;
+    }
+  `;
+  document.head.appendChild(stable);
+}
+
 $('#enterBtn')?.addEventListener('click',()=>$('#workspace')?.scrollIntoView({behavior:reduce?'auto':'smooth'}));
 window.addEventListener('scroll',()=>$('.topbar')?.classList.toggle('scrolled',window.scrollY>24),{passive:true});
 
@@ -46,10 +68,10 @@ $('[data-modal="fmr"]')?.addEventListener('click',()=>openModal(`
 $$('.video-tile img,.archive-card img,.media-card img').forEach(img=>img.loading='lazy');
 
 // V5 presentation layer is loaded here so the current static HTML can stay deployment-safe.
-if(!document.querySelector('link[href="./v5.css"]')){
+if(!document.querySelector('link[href^="./v5.css"]')){
   const style=document.createElement('link');
   style.rel='stylesheet';
-  style.href='./v5.css';
+  style.href='./v5.css?v=12';
   document.head.appendChild(style);
 }
 
