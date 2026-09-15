@@ -2,6 +2,84 @@ const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Keep the header stable before async modules add the Strategy nav item and
+// refresh the brand/nav copy. This prevents the late overlap users could see
+// after the first paint.
+if(!document.querySelector('#runtime-topbar-stability')){
+  const stable=document.createElement('style');
+  stable.id='runtime-topbar-stability';
+  stable.textContent=`
+    .topbar{
+      display:grid!important;
+      grid-template-columns:minmax(180px,300px) minmax(0,1fr)!important;
+      align-items:center!important;
+      gap:20px!important;
+      padding:18px 28px!important;
+      font-family:Arial,"Microsoft YaHei",sans-serif!important;
+    }
+    .topbar .brand{
+      min-width:0!important;
+      display:flex!important;
+      flex-direction:column!important;
+      gap:4px!important;
+      overflow:hidden!important;
+      font-family:Arial,"Microsoft YaHei",sans-serif!important;
+    }
+    .topbar .brand span,
+    .topbar .brand small{
+      display:block!important;
+      max-width:100%!important;
+      white-space:nowrap!important;
+      overflow:hidden!important;
+      text-overflow:ellipsis!important;
+      font-family:Arial,"Microsoft YaHei",sans-serif!important;
+    }
+    .topbar nav{
+      min-width:0!important;
+      display:flex!important;
+      justify-content:flex-end!important;
+      align-items:center!important;
+      gap:20px!important;
+      flex-wrap:nowrap!important;
+    }
+    .topbar nav a{
+      flex:0 0 auto!important;
+      display:flex!important;
+      align-items:baseline!important;
+      gap:5px!important;
+      white-space:nowrap!important;
+      font-family:Arial,"Microsoft YaHei",sans-serif!important;
+    }
+    @media(max-width:1360px){
+      .topbar{
+        grid-template-columns:minmax(170px,240px) minmax(0,1fr)!important;
+        gap:16px!important;
+        padding:16px 22px!important;
+      }
+      .topbar .brand small,
+      .topbar nav a small{display:none!important;}
+      .topbar nav{gap:16px!important;}
+    }
+    @media(max-width:980px){
+      .topbar{
+        grid-template-columns:1fr!important;
+        gap:10px!important;
+        padding:13px 16px 12px!important;
+      }
+      .topbar nav{
+        justify-content:flex-start!important;
+        gap:18px!important;
+        overflow-x:auto!important;
+        padding-bottom:3px!important;
+        scrollbar-width:none!important;
+        -ms-overflow-style:none!important;
+      }
+      .topbar nav::-webkit-scrollbar{display:none!important;}
+    }
+  `;
+  document.head.appendChild(stable);
+}
+
 function forceCriticalVisible(){
   $$('#spatialGrid,.spatial-grid,.cap-card,.agency-list,.agency-list a').forEach(el=>{
     el.style.setProperty('opacity','1','important');
