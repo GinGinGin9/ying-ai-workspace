@@ -19,8 +19,7 @@
       <p class="eyebrow">STRATEGY · FRAMEWORK · REVIEW · PLAYBOOK</p>
       <h2>不只展示结果，<br><em>也展示我是怎么想的。</em></h2>
       <div class="strategy-head-copy">
-        <p>这里放的是我真实工作中形成的策略、复盘与方法框架。原始业务资料不直接公开，只保留经过脱敏和重新整理后的关键结构。</p>
-        <small>SELECTED & SANITIZED FOR INTERVIEW USE</small>
+        <p>包含真实项目中的策略规划、投放复盘与产品营销框架，重点呈现判断逻辑、方法结构与下一步动作。</p>
       </div>
     </div>
 
@@ -38,7 +37,7 @@
         <h3>北美 LinkedIn ABM 第二期复盘</h3>
         <p>把媒体数据进一步转成账户渗透、销售优先级与下一阶段动作。</p>
         <div class="strategy-meta"><span>Account Reach</span><span>Sales-Ready</span><span>Performance</span></div>
-        <div class="strategy-card-footer"><span>查看脱敏策略摘要</span><b>↗</b></div>
+        <div class="strategy-card-footer"><span>查看策略摘要</span><b>↗</b></div>
       </button>
 
       <button class="strategy-card s2" data-playbook="campaign">
@@ -72,22 +71,15 @@
         <div class="strategy-meta"><span>Messaging</span><span>Content Format</span><span>Education</span></div>
         <div class="strategy-card-footer"><span>查看框架摘要</span><b>↗</b></div>
       </button>
-    </div>
-
-    <div class="strategy-note">
-      <span>WHAT THIS SHOWS</span>
-      <p><strong>作品证明我能做出来，策略文档证明我为什么这样做。</strong> 两者放在一起，才能完整呈现从执行到判断的方法。</p>
     </div>`;
   optimize.before(section);
 
-  // Renumber downstream sections without changing their ids.
   const optimizeKicker=optimize.querySelector('.section-kicker');
   if(optimizeKicker) optimizeKicker.innerHTML='05 / 优化 <small>PERFORMANCE & OPTIMIZATION</small>';
   const about=document.querySelector('#about');
   const aboutKicker=about?.querySelector('.section-kicker');
   if(aboutKicker) aboutKicker.innerHTML='06 / 关于我 <small>ABOUT</small>';
 
-  // Insert nav item before Optimize.
   const nav=document.querySelector('.topbar nav');
   const optimizeLink=nav?.querySelector('a[href="#optimize"]');
   if(nav && optimizeLink && !nav.querySelector('a[href="#strategy"]')){
@@ -107,9 +99,9 @@
 
   const playbooks={
     abm:{
-      type:'ABM & PERFORMANCE · SANITIZED REVIEW',
+      type:'ABM & PERFORMANCE · REVIEW',
       title:'从投放数据，到销售优先级。',
-      intro:'北美 LinkedIn ABM 第二期复盘。公开版本只保留方法、结构和经脱敏的结果，不公开目标公司完整名单与内部业务信息。',
+      intro:'北美 LinkedIn ABM 第二期复盘，聚焦账户触达、互动信号、销售优先级与后续跟进动作。',
       blocks:[
         ['CONTEXT','不是只看 CTR 或 Leads。','面向核心目标账户进行持续触达，需要判断广告是否真正进入目标公司，以及哪些账户已经从“看见”走向“互动”。'],
         ['KEY SIGNAL','账户渗透比单次点击更重要。','第二期复盘把账户触达、账户互动、决策层覆盖和销售优先级放在一起看。49 家核心目标企业中有 33 家已触达，9 家产生互动，并进一步形成 Sales-Ready 与 Promising 分层。'],
@@ -153,7 +145,6 @@
           <span>${d.type}</span>
           <h3>${d.title}</h3>
           <p>${d.intro}</p>
-          <div class="private-badge">脱敏展示 · INTERVIEW VIEW</div>
         </aside>
         <div class="strategy-view-right">
           <small>STRATEGIC THINKING</small>
@@ -166,7 +157,6 @@
   }
   section.querySelectorAll('[data-playbook]').forEach(card=>card.addEventListener('click',()=>openPlaybook(card.dataset.playbook)));
 
-  // Smooth nav and active-state support for the dynamically inserted section.
   nav?.querySelector('a[href="#strategy"]')?.addEventListener('click',e=>{
     e.preventDefault();
     section.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
