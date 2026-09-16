@@ -1,5 +1,12 @@
 (() => {
   const head=document.head;
+  if(!document.querySelector('script[data-public-cleanup]')){
+    const clean=document.createElement('script');
+    clean.src='./public-cleanup.js?v=1';
+    clean.dataset.publicCleanup='true';
+    clean.defer=true;
+    head.appendChild(clean);
+  }
   if(!document.querySelector('link[href*="strategy-v11.css"]')){
     const link=document.createElement('link');
     link.rel='stylesheet';
