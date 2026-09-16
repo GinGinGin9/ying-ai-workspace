@@ -4,10 +4,8 @@
     /SELECTED\s*&\s*SANITIZED/i,
     /INTERVIEW VIEW/i,
     /FOR INTERVIEW USE/i,
-    /SANITIZED REVIEW/i,
-    /SANITIZED DOCUMENT/i,
-    /SANITIZED FRAMEWORK/i,
-    /脱敏展示/,
+    /SANITIZED/i,
+    /脱敏/,
     /公开版本/,
     /不公开目标公司/,
     /原始业务资料不直接公开/,
@@ -24,20 +22,18 @@
     const strategy=document.querySelector('#strategy');
     if(!strategy) return;
 
-    // Authoring/meta notes should never be rendered publicly.
     strategy.querySelectorAll('.strategy-note').forEach(el=>el.remove());
     strategy.querySelectorAll('.private-badge').forEach(el=>el.remove());
 
     const headCopy=strategy.querySelector('.strategy-head-copy');
-    if(headCopy){
+    if(headCopy && hasInternalText(headCopy)){
       headCopy.innerHTML='<p>包含真实项目中的策略规划、投放复盘与产品营销框架，重点呈现判断逻辑、方法结构与下一步动作。</p>';
     }
 
     strategy.querySelectorAll('.strategy-card-footer span').forEach(el=>{
-      if(/脱敏/.test(el.textContent||'')) el.textContent='查看策略摘要';
+      if(/脱敏/i.test(el.textContent||'')) el.textContent='查看策略摘要';
     });
 
-    // Remove any residual meta labels injected by legacy copy layers.
     strategy.querySelectorAll('small,span,p,div').forEach(el=>{
       if(el.children.length===0 && hasInternalText(el)) el.remove();
     });
@@ -50,7 +46,7 @@
     modal.querySelectorAll('.private-badge').forEach(el=>el.remove());
 
     const type=modal.querySelector('.strategy-view-left > span');
-    if(type){
+    if(type && /SANITIZED/i.test(type.textContent||'')){
       type.textContent=(type.textContent||'')
         .replace(/\s*·\s*SANITIZED REVIEW/gi,' · REVIEW')
         .replace(/\s*·\s*SANITIZED DOCUMENT/gi,' · DOCUMENT')
