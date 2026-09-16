@@ -169,3 +169,6 @@
    The fourth Google Drive asset no longer resolves publicly, so keep the
    portfolio clean instead of rendering a broken image/alt-text block. */
 .archive-card.a4{display:none!important}
+
+/* V14 — internal authoring note must not appear in the public portfolio. */
+.strategy-note{display:none!important}
